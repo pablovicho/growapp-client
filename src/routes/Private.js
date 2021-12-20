@@ -4,11 +4,11 @@ import UserContext from '../context/User/UserContext'
 
 export default function PublicRoute({ component: Component, ...props }) {
     const userCtx = useContext(UserContext)
-    const { authStatus, verifyToken } = userCtx
+    const { authStatus, verifyingToken } = userCtx
     const [loading, setLoading] = useState(true)
 
     useEffect(async () => {
-        await verifyToken()
+        await verifyingToken()
         setLoading(false)
     }, [authStatus])
 

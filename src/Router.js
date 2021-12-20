@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Layout from './components/Layout'
 import Profile from './components/User/Profile'
 import About from  './pages/About'
+import Edit from './components/User/Edit'
 
 import UserState from './context/User/UserState'
 import Auth from './routes/Auth'
@@ -24,6 +25,7 @@ const Router = () => {
 							<Route path="registro" element={<Auth component={Register} />}/>
 							<Route path="iniciar-sesion" element={<Auth component={Login} />} />
 							<Route path="profile" element={<Private component={Profile} />} />
+							<Route path="editar/:id" element={<Private component={Edit} />} />
                             <Route path="sobre-nosotros" element={<About/>} />
 						</Route>
 					</Routes>

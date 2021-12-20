@@ -22,7 +22,7 @@ const reducer = (globalState, action) => {
                 msg: action.payload,
 
         }
-
+		case "UPDATE_User":
 		case "GET_DATA_USER":
 			return {
 				...globalState,

@@ -15,3 +15,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+  width: 150%
+}

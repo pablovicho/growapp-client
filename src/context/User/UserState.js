@@ -45,7 +45,7 @@ const UserState = (props) => {
 		})
 	}
 
-	const verifyToken = async () => {
+	const verifyingToken = async () => {
 
 		const token = localStorage.getItem("token")
 
@@ -79,6 +79,25 @@ const UserState = (props) => {
         })
 	}
 
+	const getUser = async(userId) => {
+		const res = await axiosClient.get(`users/readone/${userId}`) //checar els erver
+		const selectedUser = res.data.data
+	  dispatch({
+		type:"GET_USER",
+		payload:selectedUser
+	  })
+	  } //no estoy seguro de necesitar esto, porque ya con el token se encuentra el usuario
+
+	  const updateUser = async (form, userId) => {
+		const res = await axiosClient.put(`users/edit/${userId}`)
+		console.log(res)
+		const updatedUser = res.data.data
+		dispatch({
+		  type: "UPDATE_USER",
+		  payload: updatedUser
+		})
+	  }
+
 	// 4. RETORNO
 	return (
 		<UserContext.Provider
@@ -87,8 +106,10 @@ const UserState = (props) => {
 				authStatus: globalState.authStatus,
 				registerUser,
 				loginUser,
-				verifyToken,
-				logoutUser
+				verifyingToken,
+				logoutUser,
+				getUser,
+				updateUser
 			}}
 		>
 			{props.children}

@@ -14,11 +14,6 @@ export default function Home() {
 	return (
 		<div>
 			Este es el Home
-			<button onClick={() => {
-				verifyingToken()
-			}}>
-				Verificar sesión
-			</button>
 
 		</div>
 	)

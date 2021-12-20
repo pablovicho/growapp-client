@@ -8,47 +8,47 @@ export default function Header() {
 
 	const {
 		currentUser,
-		verifyToken,
+		verifyingToken,
 		logoutUser
 	} = ctx
 
 	useEffect(() => {
-		verifyToken()
+		verifyingToken()
 	}, [])
 
 
 
 
 	return (
-		<header className="bg-black">
+		<header className="bg-lime-600">
 			<nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-				<div className="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none">
+				<div className="w-full py-3 flex items-center justify-between border-b border-indigo-500 lg:border-none">
 					<div className="flex items-center">
 						<Link to="/">
 							<img className="h-10 w-auto" src="https://cdn.worldvectorlogo.com/logos/ironhack-1.svg" alt="" />
 						</Link>
 						<div className="ml-10 space-x-8 lg:block">
-							<Link to="/sobre-nosotros" className="text-base font-medium text-white hover:text-indigo-50">
-								Sobre nosotros
+							<Link to="/sobre-nosotros" className="hidden md:block max-w-7xl text-base text-lg font-medium text-white hover:text-indigo-50">
+								NOSOTROS
 							</Link>
 
 						</div>
 					</div>
-					<div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+					<div className="flex items-center justify-around sm:flex-1 ">
 						{
 							currentUser.nombre ?
 								<>
-								<Link to="/profile" className="text-base font-medium text-white hover:text-indigo-50">
-									Tu perfil
+								<Link to="/profile" className="text-center font-medium text-lg mr-4 text-white hover:text-indigo-50">
+									TU PERFIL
 								</Link>
-								<a onClick={() => logoutUser()} href="/" className="text-base font-medium text-white hover:text-indigo-50">Cerrar sesión</a>
+								<button onClick={() => logoutUser()} href="/" className="text-base text-lg font-medium text-white hover:text-indigo-50">CERRAR SESIÓN</button>
 								</>
 								:
 								<>
-									<Link to="/registro" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700">
+									<Link to="/registro" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-blue-500 hover:to-blue-600">
 										Crear cuenta
 									</Link>
-									<Link to="/iniciar-sesion" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-purple-700 hover:to-indigo-700">
+									<Link to="/iniciar-sesion" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-blue-500 hover:to-blue-600">
 										Iniciar sesión
 									</Link>
 								</>

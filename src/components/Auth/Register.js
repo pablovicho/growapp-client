@@ -15,7 +15,8 @@ export default function Register() {
 		nombre: "",
 		email: "",
 		password: "",
-		confirmarpassword: ""
+		confirmarpassword: "",
+		terapeuta: false
 	})
 
 	const handleChange = (e) => {
@@ -40,28 +41,28 @@ export default function Register() {
 	return (
 		<div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
 			<div className="sm:mx-auto sm:w-full sm:max-w-md">
-				<img className="mx-auto h-12 w-auto" src="https://cdn.worldvectorlogo.com/logos/ironhack-1.svg" />
+				<img className="mx-auto h-12 w-auto" src="https://cdn.worldvectorlogo.com/logos/ironhack-1.svg" alt=""/>
 				<h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
 					Crea tu cuenta
 				</h2>
-				<p className="mt-2 text-center text-sm text-gray-600">
-					¿Ya tienes cuenta? &nbsp;
+				<p className="mt-2 text-center text-md text-gray-600">
+					¿Ya tienes cuenta? &nbsp; <br/>
 					<Link to="/iniciar-sesion">
-						<button className="font-medium text-yellow-500 hover:text-yellow-300">
-							Inicia sesión.
+						<button className="font-medium text-lime-700 hover:text-lime-500">
+							Inicia sesión
 						</button>
 					</Link>
 				</p>
 			</div>
 
 			<div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-				<div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+				<div className="bg-lime-50 py-8 px-4 shadow sm:rounded-lg sm:px-10">
 					<form 
 					onSubmit={(event) => { handleSubmit(event) }}
 					className="space-y-6">
 						<div>
 							<label htmlFor="password" className="block text-sm font-medium text-gray-700">
-								Tu nombre completo
+								Nombre
 							</label>
 							<div className="mt-1">
 								<input
@@ -74,7 +75,7 @@ export default function Register() {
 
 						<div>
 							<label htmlFor="email" className="block text-sm font-medium text-gray-700">
-								Tu correo electrónico
+								Correo electrónico
 							</label>
 							<div className="mt-1">
 								<input
@@ -87,7 +88,7 @@ export default function Register() {
 
 						<div>
 							<label htmlFor="password" className="block text-sm font-medium text-gray-700">
-								Tu contraseña
+								Contraseña
 							</label>
 							<div className="mt-1">
 								<input
@@ -113,8 +114,42 @@ export default function Register() {
 							</div>
 						</div>
 
-						<div>
-							<button type="submit" className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+	  <div>
+  <label className="text-base font-medium text-gray-900">Tipo de usuario</label>
+  <fieldset className="mt-4">
+    <legend htmlFor="usuario" className="sr-only">Usuario</legend>
+    <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
+      <div className="flex items-center">
+        <input name="terapeuta" 
+				onChange={(e) => {handleChange(e)}}
+                type="radio"
+			    value="false" 
+                id="usuario"
+				
+				className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/>
+        <label htmlFor="email" className="ml-3 block text-sm font-medium text-gray-700">
+          Principal
+        </label>
+      </div>
+
+      <div className="flex items-center">
+        <input onChange={(e) => {handleChange(e)}}
+                name="terapeuta" 
+                type="radio" 
+                id="terapeuta"
+				value="true"
+				className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/>
+        <label htmlFor="sms" className="ml-3 block text-sm font-medium text-gray-700">
+          Acompañante
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+</div>
+		
+						<div className="flex justify-center">
+							<button type="submit" className="w-60 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-lime-700 font-lg hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
 								Crear cuenta
 							</button>
 						</div>

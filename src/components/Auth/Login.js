@@ -46,22 +46,22 @@ export default function Login() {
         <p className="mt-2 text-center text-sm text-gray-600">
           ¿Aún sin cuenta? &nbsp;
           <Link to="/registro">
-            <button className="font-medium text-yellow-500 hover:text-yellow-300">
-              Regístrate aquí.
+            <button className="font-medium text-md text-lime-700 hover:text-lime-500">
+              Regístrate aquí
             </button>
           </Link>
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="bg-lime-50 py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form 
             className="space-y-6"
             onSubmit={(e) => { handleSubmit(e) }}
           >
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Tu correo electrónico
+                Correo electrónico
               </label>
               <div className="mt-1">
                 <input
@@ -74,7 +74,7 @@ export default function Login() {
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Tu contraseña
+                Contraseña
               </label>
               <div className="mt-1">
                 <input 
@@ -86,8 +86,8 @@ export default function Login() {
             </div>
 
 
-            <div>
-              <button type="submit" className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            <div className="flex justify-center">
+              <button type="submit" className="w-60 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-lime-700 hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 Acceder a tu cuenta
               </button>
             </div>
