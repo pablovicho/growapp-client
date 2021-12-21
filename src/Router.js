@@ -9,6 +9,7 @@ import About from  './pages/About'
 import Edit from './components/User/Edit'
 
 import UserState from './context/User/UserState'
+import MoodState from './context/Mood/MoodState'
 import Auth from './routes/Auth'
 import Private from './routes/Private'
 
@@ -18,6 +19,7 @@ const Router = () => {
 	return (
 		<>
 		<UserState>
+		<MoodState>
 				<BrowserRouter>
 					<Routes>
 						<Route path="/" element={<Layout />}>
@@ -30,6 +32,7 @@ const Router = () => {
 						</Route>
 					</Routes>
 				</BrowserRouter>
+				</MoodState>
 		</UserState>
 		</>
 	)

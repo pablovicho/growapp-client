@@ -22,13 +22,20 @@ const reducer = (globalState, action) => {
                 msg: action.payload,
 
         }
-		case "UPDATE_User":
+		case "UPDATE_USER":
 		case "GET_DATA_USER":
 			return {
 				...globalState,
 				authStatus: true,
-				currentUser: action.payload
+				singleUser: action.payload
 			}
+
+			case "DELETE_USER":
+				return {
+					...globalState,
+					authStatus: false,
+					currentUser: action.payload
+				}
 
 		default: 
 			return globalState

@@ -22,7 +22,7 @@ export default function AuthRoute({ component: Component, ...props }) {
 		<>
 			{
 				authStatus ?
-				(<Navigate replace to="/" />)
+				(<Navigate replace to="/profile" />)
 				:
 				(<Component/>)
 			}

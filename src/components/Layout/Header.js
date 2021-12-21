@@ -9,7 +9,8 @@ export default function Header() {
 	const {
 		currentUser,
 		verifyingToken,
-		logoutUser
+		logoutUser,
+		authStatus
 	} = ctx
 
 	useEffect(() => {
@@ -28,7 +29,7 @@ export default function Header() {
 							<img className="h-10 w-auto" src="https://cdn.worldvectorlogo.com/logos/ironhack-1.svg" alt="" />
 						</Link>
 						<div className="ml-10 space-x-8 lg:block">
-							<Link to="/sobre-nosotros" className="hidden md:block max-w-7xl text-base text-lg font-medium text-white hover:text-indigo-50">
+							<Link to="/sobre-nosotros" className="hidden md:block max-w-7xl text-base text-lg font-medium text-white hover:text-blue-50">
 								NOSOTROS
 							</Link>
 
@@ -36,12 +37,12 @@ export default function Header() {
 					</div>
 					<div className="flex items-center justify-around sm:flex-1 ">
 						{
-							currentUser.nombre ?
+							authStatus ?
 								<>
-								<Link to="/profile" className="text-center font-medium text-lg mr-4 text-white hover:text-indigo-50">
+								<Link to="/profile" className="text-center font-medium text-lg mr-4 text-white hover:text-blue-50">
 									TU PERFIL
 								</Link>
-								<button onClick={() => logoutUser()} href="/" className="text-base text-lg font-medium text-white hover:text-indigo-50">CERRAR SESIÓN</button>
+								<button onClick={() => logoutUser()} href="/" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-blue-500 hover:to-blue-600">CERRAR SESIÓN</button>
 								</>
 								:
 								<>

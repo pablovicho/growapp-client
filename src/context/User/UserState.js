@@ -1,5 +1,4 @@
 import { useReducer } from 'react'
-
 import UserReducer from './UserReducer'
 import UserContext from './UserContext'
 import axiosClient from './../../config/axios'
@@ -10,6 +9,13 @@ const UserState = (props) => {
 	// 1. INITIAL STATE
 	const initialState = {
 		currentUser: {
+			nombre: "",
+			email: "",
+			password: "",
+            terapeuta: false
+		},
+		singleUser: {
+			_id:"",
 			nombre: "",
 			email: "",
 			password: "",
@@ -34,7 +40,6 @@ const UserState = (props) => {
 	}
 
 	const loginUser = async (form) => {
-		console.log(form)
 		const res = await axiosClient.post("users/login", form)
 		console.log(res)
 		const token = res.data.data
@@ -98,18 +103,31 @@ const UserState = (props) => {
 		})
 	  }
 
+	
+	const deleteUser = async (form, userId) => {
+		const deletedUser  = await axiosClient.delete(`users/delete/${userId}`)
+		dispatch({
+			type: "DELETE_USER",
+			payload: deletedUser
+		  })
+	}
+
+
+
 	// 4. RETORNO
 	return (
 		<UserContext.Provider
 			value={{
 				currentUser: globalState.currentUser,
 				authStatus: globalState.authStatus,
+				singleUser: globalState.singleUser,
 				registerUser,
 				loginUser,
 				verifyingToken,
 				logoutUser,
 				getUser,
-				updateUser
+				updateUser,
+				deleteUser
 			}}
 		>
 			{props.children}
