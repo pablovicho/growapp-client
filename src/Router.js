@@ -32,6 +32,7 @@ const Router = () => {
 							</Route>
 							<Route path="editar/:id" element={<Private component={Edit} />} />
                             <Route path="sobre-nosotros" element={<About/>} />
+							<Route path="*" element={<h1>Error 404. <br/> ¡Parece que la ruta no existe!</h1>}></Route>
 						</Route>
 					</Routes>
 				</BrowserRouter>

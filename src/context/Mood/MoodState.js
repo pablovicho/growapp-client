@@ -44,9 +44,10 @@ dispatch({
 })
 }
 
-const crearMood = (async(form) => {
+const crearMood = (async(form, moodId) => {
   const res = await axiosClient.post("moods/create", form)
   console.log(res)
+  window.location.replace(`moods/readall`);
 })
 
 

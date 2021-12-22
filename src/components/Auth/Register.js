@@ -27,7 +27,6 @@ export default function Register() {
 			...newUser,
 			[e.target.name]: e.target.value
 		})
-
 	}
 
 	const handleSubmit = (e) => {
