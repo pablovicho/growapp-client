@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../../context/User/UserContext";
 import { useParams } from "react-router-dom";
+import logo4 from "../../images/logo4.png"
 
 import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'
@@ -33,45 +34,46 @@ export default function Edit() {
 
   // USEEFFECT PARA ACTUALIZAR LOS DATOS DEL ESTADO GLOBAL AL ESTADO LOCAL
   useEffect(() => {
-    
 		const {
 			nombre,
       email,
       terapeuta,
-		} = ctx.singleUser
+		} = singleUser
 
 		setUserData({
-      
 			nombre: nombre,
 			email: email,
 			terapeuta: terapeuta,
 		})
-	}, [ctx.singleUser])  // este single revisa cada que se cambia la variable, y hace entonces y solo entonces el async/await
+	}, [singleUser])  // este single revisa cada que se cambia la variable, y hace entonces y solo entonces el async/await
 
   const handleChange = (e) => {
     e.preventDefault();
     setUserData({
       ...userData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     updateUser(userData, idUser);
-  };
+  }
 
   return (
     <>
-      <div className="flex flex-column justify-center items-center">
-        <div className="max-w-sm bg-orange-50 rounded overflow-hidden shadow-lg my-8 text-center">
-          <form
+      <form
             onSubmit={(event) => {
-              handleSubmit(event);
+              handleSubmit(event)
             }}
           >
+      <div className="flex flex-column  justify-center items-center">
+        <div className="max-w-sm bg-orange-50 rounded overflow-hidden shadow-lg my-8 text-center">
+        <div className="flex justify-center mt-2">
+        <img src={logo4} alt="logo"/>
+        </div>
             <div className="shadow sm:rounded-md sm:overflow-hidden">
-              <div className="bg-white py-6 px-4 space-y-6 sm:p-6">
+              <div className="bg-white py-6 px-4 bg-orange-50 space-y-6 sm:p-6">
                 <div>
                   <h3 className="text-lg leading-6 font-medium text-gray-900">
                     Editar usuario
@@ -169,17 +171,12 @@ export default function Edit() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col px-4 py-3 bg-gray-50 text-center items-center sm:px-6">
-              {/* <form afterSubmit={() => navigate('/profile')}> */}
-{/* <Link to={`/profile`}> */}
+              <div className="flex flex-col px-4 py-3 bg-orange-50 text-center items-center sm:px-6">
+
                 <button
-                  type="submit"
-                  className="bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  GUARDAR
+                  type="submit" className="bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-2"
+                >GUARDAR
                 </button>
-                {/* </Link> */}
-                {/* </form> */}
 
                 {/* <Link to={`/`}>
                 <button onClick={deleteUser()}
@@ -191,9 +188,10 @@ export default function Edit() {
                 </Link> */}
               </div>
             </div>
-          </form>
+          
         </div>
       </div>
+      </form>
     </>
   );
 }

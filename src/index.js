@@ -1,5 +1,4 @@
 import React from 'react';
-import 'alpinejs';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Router from './Router';

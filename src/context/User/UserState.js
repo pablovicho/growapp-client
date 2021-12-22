@@ -8,12 +8,12 @@ const UserState = (props) => {
 
 	// 1. INITIAL STATE
 	const initialState = {
-		currentUser: {
-			nombre: "",
-			email: "",
-			password: "",
-            terapeuta: false
-		},
+		// currentUser: {
+		// 	nombre: "",
+		// 	email: "",
+		// 	password: "",
+        //     terapeuta: false
+		// },
 		singleUser: {
 			_id:"",
 			nombre: "",
@@ -64,8 +64,6 @@ const UserState = (props) => {
 		try {
 			
 			const res = await axiosClient.get("users/verifytoken")
-
-			console.log(res)
 			const userData = res.data.data
 			dispatch({
 				type: "GET_DATA_USER",
@@ -85,22 +83,23 @@ const UserState = (props) => {
 	}
 
 	const getUser = async(userId) => {
-		const res = await axiosClient.get(`users/readone/${userId}`) //checar els erver
+		const res = await axiosClient.get(`users/readone/${userId}`) //checar el server
 		const selectedUser = res.data.data
 	  dispatch({
 		type:"GET_USER",
 		payload:selectedUser
 	  })
-	  } //no estoy seguro de necesitar esto, porque ya con el token se encuentra el usuario
+	  }
 
-	  const updateUser = async (form, userId) => {
-		const res = await axiosClient.put(`users/edit/${userId}`)
-		console.log(res)
+	  const updateUser = async (form, userId) => { 
+		const res = await axiosClient.post(`users/edit/${userId}`, form)
 		const updatedUser = res.data.data
+		// console.log(updatedUser)
 		dispatch({
 		  type: "UPDATE_USER",
 		  payload: updatedUser
 		})
+		window.location.replace('/profile');
 	  }
 
 	
@@ -118,7 +117,7 @@ const UserState = (props) => {
 	return (
 		<UserContext.Provider
 			value={{
-				currentUser: globalState.currentUser,
+				// currentUser: globalState.currentUser,
 				authStatus: globalState.authStatus,
 				singleUser: globalState.singleUser,
 				registerUser,

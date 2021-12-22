@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/User/UserContext'
-
+import logo3 from "../../images/logo3.png"
 
 export default function Login() {
 
@@ -39,7 +39,9 @@ export default function Login() {
 	return (
 		<div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <img className="mx-auto h-12 w-auto" src="https://cdn.worldvectorlogo.com/logos/ironhack-1.svg" alt="Workflow" />
+      <div className="flex justify-center mt-2">
+        <img src={logo3} alt="logo"/>
+        </div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Iniciar sesión
         </h2>
