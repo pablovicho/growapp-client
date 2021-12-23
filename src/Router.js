@@ -7,7 +7,9 @@ import Layout from './components/Layout'
 import Profile from './components/User/Profile'
 import About from  './pages/About'
 import Edit from './components/User/Edit'
-import MoodsForm from './components/User/MoodsForm'
+// import Chart from 'chart.js/auto'
+// import App from './components/Moods/App'
+import Victory from './components/Moods/Victory'
 
 import UserState from './context/User/UserState'
 import MoodState from './context/Mood/MoodState'
@@ -19,6 +21,7 @@ const Router = () => {
 	
 	return (
 		<>
+		{/* <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> */}
 		<UserState>
 		<MoodState>
 				<BrowserRouter>
@@ -28,10 +31,10 @@ const Router = () => {
 							<Route path="registro" element={<Auth component={Register} />}/>
 							<Route path="iniciar-sesion" element={<Auth component={Login} />} />
 							<Route path="profile" element={<Private component={Profile} />}>
-								<Route path="moodsform" element={<MoodsForm/>}/>
 							</Route>
 							<Route path="editar/:id" element={<Private component={Edit} />} />
                             <Route path="sobre-nosotros" element={<About/>} />
+							<Route path="moods/chart" element={<Victory/>}/>
 							<Route path="*" element={<h1>Error 404. <br/> ¡Parece que la ruta no existe!</h1>}></Route>
 						</Route>
 					</Routes>

@@ -16,8 +16,8 @@ const MoodState = (props) => {
     singleMood: {
       _id: "",
       moodEntry: "",
-	comment: "",
-    date: new Date()
+	    comment: "",
+      date: new Date()
   }
 }
   // 2. Configuración de reducer y creación del estado global
@@ -25,13 +25,15 @@ const MoodState = (props) => {
   //dipatch es una fución que cambia el estado global, le da los datos reales al reducer para que haga su propia función
 
   // 3. Funciones de cambio en estado global
-
+//datos reales que le vas a pasar para cambiar el estado global
   const getMoods = async() => {
     const res = await axiosClient.get("moods/readall")
     const list = res.data.data
+    localStorage.setItem("moods", list)
+    console.log("obteniendo moods")
     dispatch({
       type: "GET_MOODS",
-      payload: list, //datos reales que le vas a pasar para cambiar el estado global
+      payload: list, 
     });
   }
 
@@ -47,7 +49,7 @@ dispatch({
 const crearMood = (async(form, moodId) => {
   const res = await axiosClient.post("moods/create", form)
   console.log(res)
-  window.location.replace(`moods/readall`);
+  window.location.replace(`moods/chart`);
 })
 
 
