@@ -5,6 +5,11 @@ import logo3 from "../images/logo3.png"
 
 
 export default function Home() {
+  const ctxUser = useContext(UserContext);
+  const { singleUser } = ctxUser;
+  const { nombre, _id, terapeuta } = singleUser;
+
+
 
 	return (
 		<div>

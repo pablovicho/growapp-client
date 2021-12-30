@@ -1,5 +1,6 @@
 //importaciones
 import React, { useState, useContext, useEffect } from "react";
+import { Params } from "react-router-dom";
 import UserContext from "../../context/User/UserContext";
 import MoodContext from "../../context/Mood/MoodContext";
 import { Link, Outlet } from "react-router-dom";
@@ -13,7 +14,6 @@ import muerto from "../../images/Muerto.png";
 
 export default function Profile() {
   // estado global: state
-
   const ctxUser = useContext(UserContext);
   const ctxMood = useContext(MoodContext);
   const { crearMood } = ctxMood;
@@ -25,6 +25,7 @@ export default function Profile() {
     moodEntry: 7,
     comment: "",
     date: new Date(),
+    userId: _id
   });
 
   

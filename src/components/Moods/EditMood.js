@@ -1,27 +1,23 @@
 import React, { useState, useContext, useEffect } from "react";
-import UserContext from "../../context/User/UserContext";
+import MoodContext from "../../context/Mood/MoodContext";
 import { useParams } from "react-router-dom";
 import logo4 from "../../images/logo4.png"
 
-import { Link, Navigate } from "react-router-dom";
-import { useNavigate } from 'react-router-dom'
-
-export default function Edit() {
+export default function EditMood() {
   // estado global: state
   const params = useParams();
-  const idUser = params.id;
+  const idMood = params.id;
 
-  const ctx = useContext(UserContext);
-  const { getUser, updateUser, deleteUser, singleUser } = ctx;
+  const ctx = useContext(MoodContext);
+  const { getMood, updateMood, deleteMood, singleMood } = ctx;
   
   // const navigate = useNavigate()
   
 
   // estado local: context  (apenas se capturan los datos, se utilizan en un action.post)
-  const [userData, setUserData] = useState({
-    nombre: "",
-    email: "",
-    terapeuta: "",
+  const [moodData, setMoodData] = useState({
+    moodEntry: 7,
+    comment: "",
   });
 
   // funciones
@@ -29,35 +25,34 @@ export default function Edit() {
  // USEEFFECT PARA ACTUALIZAR DATOS EN EL ESTADO GLOBAL
 
   useEffect(() => {
-    getUser(idUser)
+    getMood(idMood)
   }, []);
 
   // USEEFFECT PARA ACTUALIZAR LOS DATOS DEL ESTADO GLOBAL AL ESTADO LOCAL
   useEffect(() => {
 		const {
-			nombre,
-      email,
-      terapeuta,
-		} = singleUser
+	     moodEntry,
+         comment,
+      
+		} = singleMood
 
-		setUserData({
-			nombre: nombre,
-			email: email,
-			terapeuta: terapeuta,
+		setMoodData({
+			moodEntry: moodEntry,
+			comment: comment,
 		})
-	}, [singleUser])  // este single revisa cada que se cambia la variable, y hace entonces y solo entonces el async/await
+	}, [singleMood])  // este single revisa cada que se cambia la variable, y hace entonces y solo entonces el async/await
 
   const handleChange = (e) => {
     e.preventDefault();
-    setUserData({
-      ...userData,
+    setMoodData({
+      ...moodData,
       [e.target.name]: e.target.value,
     })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateUser(userData, idUser);
+    updateMood(moodData, idMood);
   }
 
   return (
@@ -76,25 +71,25 @@ export default function Edit() {
               <div className="bg-white py-6 px-4 bg-orange-50 space-y-6 sm:p-6">
                 <div>
                   <h3 className="text-lg leading-6 font-medium text-gray-900">
-                    Editar usuario
+                    Editar estado de ánimo
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="nombre"
+                      htmlFor="moodEntry"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Nombre
+                      Estado de ánimo
                     </label>
                     <input
                       onChange={(event) => {
                         handleChange(event);
                       }}
                       type="text"
-                      name="nombre"
-                      value={userData.nombre}
+                      name="moodEntry"
+                      value={moodData.moodEntry}
                       className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     />
                   </div>
@@ -102,73 +97,24 @@ export default function Edit() {
 
                   <div className="col-span-6 sm:col-span-3">
                     <label
-                      htmlFor="email"
+                      htmlFor="comment"
                       className="block text-sm font-medium text-gray-700"
                     >
                       Correo electrónico
                     </label>
                     <input
-                      value={userData.email}
+                      value={moodData.comment}
                       onChange={(event) => {
                         handleChange(event);
                       }}
-                      type="email"
-                      name="email"
+                      type="text"
+                      name="comment"
                       className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     />
                   </div>
 
                   <br/>
-                  <div className="">
                   
-                    <label className="text-base font-medium text-gray-900">
-                      Tipo de usuario
-                    </label>
-                    <fieldset className="mt-4">
-                      <legend htmlFor="usuario" className="sr-only">
-                        Usuario
-                      </legend>
-                      <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
-                        <div className="flex items-center">
-                          <input
-                            name="terapeuta"
-                            onChange={(e) => {
-                              handleChange(e);
-                            }}
-                            type="radio"
-                            value="false"
-                            id="usuario"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                          />
-                          <label
-                            htmlFor="email"
-                            className="ml-3 block text-sm font-medium text-gray-700"
-                          >
-                            Principal
-                          </label>
-                        </div>
-
-                        <div className="flex items-center">
-                          <input
-                            onChange={(e) => {
-                              handleChange(e);
-                            }}
-                            name="terapeuta"
-                            type="radio"
-                            id="terapeuta"
-                            value="true"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                          />
-                          <label
-                            htmlFor="sms"
-                            className="ml-3 block text-sm font-medium text-gray-700"
-                          >
-                            Acompañante
-                          </label>
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
                 </div>
               </div>
               <div className="flex flex-col px-4 py-3 bg-orange-50 text-center items-center sm:px-6">
@@ -179,7 +125,7 @@ export default function Edit() {
                 </button>
 
                 {/* <Link to={`/`}>
-                <button onClick={deleteUser()}
+                <button onClick={deleteMod()}
                   type="submit"
                   className="bg-red-600 border mt-3 w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >

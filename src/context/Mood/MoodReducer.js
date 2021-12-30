@@ -9,6 +9,7 @@ const reducer = (globalState, action) => {
   
       case "GET_MOOD":
         case "UPDATE_MOOD":
+          case "DELETE_MOOD":
         return {
           ...globalState,
           singleMood: action.payload,

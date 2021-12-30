@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   VictoryBar,
   VictoryChart,
@@ -9,21 +10,19 @@ import {
 import MoodContext from "../../context/Mood/MoodContext";
 import logo3 from "../../images/logo3.png";
 
-const moodData = [
-  { day: 1, mood: 2 },
-  { day: 2, mood: 1 },
-  { day: 3, mood: 3 },
-  { day: 4, mood: 2 },
-  { day: 5, mood: 4 },
-];
-
 export default function Victory() {
   const ctx = useContext(MoodContext);
-  const { getMoods, moods } = ctx;
+  const { getMoods, moods, singleMood } = ctx;
+  const {_id} = singleMood
 
   useEffect(() => {
     getMoods();
   }, []);
+
+  const moodData = moods.map((e)=> {
+    // const day = e.date.getUTCDate()
+    return {day:e.date, mood:e.moodEntry}
+  })
 
   return (
     <div>
@@ -43,28 +42,34 @@ export default function Victory() {
         </VictoryChart>
       </div>
 
-      <div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="flex flex-col justify-center py-8 w-auto sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center mt-2">
             <ul>
               {moods.map((e) => {
                 return (
+                  <Link to={`/moods/${_id}`}>
                   <li>
-                    <div id="container" class="w-4/5 mx-auto">
-                      <div class="flex flex-col sm:flex-row">
-                        <div class="sm:w-1/4 p-2">
-                          <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-                            <h2 class="text-xl font-medium text-gray-700">
+                    <div id="container" className="w-4/5 mx-auto">
+                      <div className="flex flex-col sm:flex-row">
+                        {/* este es el width del cuadro del mood, está en w-auto, pero habrá que ajustarlo */}
+                        <div className="sm:w-auto p-2"> 
+                          <div className="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
+                            <h2 className="text-xl font-medium text-gray-700">
                               {e.date}:
                             </h2>
-                            <span class="text-blue-500 block mb-5">
+                            <span className="text-blue-500 block mb-5">
                               {e.comment}
+                            </span>
+                            <span className="text-blue-500 block mb-5">
+                              {e.userId}
                             </span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </li>
+                  </Link>
                 );
               })}
             </ul>

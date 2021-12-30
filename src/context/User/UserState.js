@@ -48,6 +48,7 @@ const UserState = (props) => {
 			type: "LOGIN_EXITOSO",
 			payload: token
 		})
+		
 	}
 
 	const verifyingToken = async () => {
@@ -80,6 +81,7 @@ const UserState = (props) => {
 		dispatch({
             type: "LOGOUT_USUARIO"
         })
+		window.location.replace('/')
 	}
 
 	const getUser = async(userId) => {
@@ -99,7 +101,7 @@ const UserState = (props) => {
 		  type: "UPDATE_USER",
 		  payload: updatedUser
 		})
-		window.location.replace('/profile');
+		window.location.replace(`../profile/${userId}`);
 	  }
 
 	

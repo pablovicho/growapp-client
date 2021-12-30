@@ -7,8 +7,7 @@ import Layout from './components/Layout'
 import Profile from './components/User/Profile'
 import About from  './pages/About'
 import Edit from './components/User/Edit'
-// import Chart from 'chart.js/auto'
-// import App from './components/Moods/App'
+import EditMood from './components/Moods/EditMood'
 import Victory from './components/Moods/Victory'
 
 import UserState from './context/User/UserState'
@@ -30,11 +29,12 @@ const Router = () => {
 							<Route index element={<Home />} />
 							<Route path="registro" element={<Auth component={Register} />}/>
 							<Route path="iniciar-sesion" element={<Auth component={Login} />} />
-							<Route path="profile" element={<Private component={Profile} />}>
+							<Route path="profile/:id" element={<Private component={Profile} />}>
 							</Route>
 							<Route path="editar/:id" element={<Private component={Edit} />} />
                             <Route path="sobre-nosotros" element={<About/>} />
-							<Route path="moods/chart" element={<Victory/>}/>
+							<Route path="moods/chart/:id" element={<Victory/>}/>
+							<Route path="moods/:id" element={<Private component={EditMood} />} />
 							<Route path="*" element={<h1>Error 404. <br/> ¡Parece que la ruta no existe!</h1>}></Route>
 						</Route>
 					</Routes>

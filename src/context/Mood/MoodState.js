@@ -4,13 +4,14 @@
 
 //
 
-import { useReducer } from "react"; //es como useState
+import { useContext, useReducer } from "react"; //es como useState
 import MoodContext from "./MoodContext";
 import MoodReducer from "./MoodReducer";
 import axiosClient from "../../config/axios";
 
 const MoodState = (props) => {
   // 1. Estado inicial
+
   const initialState = {
     moods: [],
     singleMood: {
@@ -46,21 +47,28 @@ dispatch({
 })
 }
 
-const crearMood = (async(form, moodId) => {
+const crearMood = (async(form, userId) => {
   const res = await axiosClient.post("moods/create", form)
-  console.log(res)
-  window.location.replace(`moods/chart`);
+  console.log("mood creado con éxito", res)
+  window.location.replace(`../moods/chart/${userId}`);
 })
 
 
 const updateMood = async (form, moodId) => {
   const res = await axiosClient.put(`moods/edit/${moodId}`, form)
-  console.log(res)
   const updatedMood = res.data.data
   dispatch({
     type: "UPDATE_MOOD",
     payload: updatedMood
   })
+}
+
+const deleteMood = async (form, moodId) => {
+  const deletedMood  = await axiosClient.delete(`moods/delete/${moodId}`, form)
+  dispatch({
+    type: "DELETE_MOOD",
+    payload: deletedMood
+    })
 }
 
   // 4. Retorno. para que pueda retornar todos los datos, necesitamos un provider: da acceso a db
@@ -73,7 +81,8 @@ const updateMood = async (form, moodId) => {
         getMoods,
         getMood,
         crearMood,
-        updateMood
+        updateMood,
+        deleteMood
       }}
     >
       {props.children} {/*todos los children tendrán acceso a value*/}

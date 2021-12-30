@@ -34,7 +34,7 @@ const reducer = (globalState, action) => {
 				return {
 					...globalState,
 					authStatus: false,
-					currentUser: action.payload
+					singleUser: action.payload
 				}
 
 		default: 

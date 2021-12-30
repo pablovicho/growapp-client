@@ -8,11 +8,13 @@ export default function Header() {
 	const ctx = useContext(UserContext)
 
 	const {
-		currentUser,
+		singleUser,
 		verifyingToken,
 		logoutUser,
 		authStatus
 	} = ctx
+
+	const {_id} = singleUser
 
 	useEffect(() => {
 		verifyingToken()
@@ -40,7 +42,7 @@ export default function Header() {
 						{
 							authStatus ?
 								<>
-								<Link to="/profile" className="text-center font-medium text-lg mr-4 text-white hover:text-blue-50">
+								<Link to={`/profile/${_id}`} className="text-center font-medium text-lg mr-4 text-white hover:text-blue-50">
 									PERFIL
 								</Link>
 								<button onClick={() => logoutUser()} href="/" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-blue-500 hover:to-blue-600">CERRAR SESIÓN</button>
