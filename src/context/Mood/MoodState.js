@@ -18,7 +18,8 @@ const MoodState = (props) => {
       _id: "",
       moodEntry: "",
 	    comment: "",
-      date: new Date()
+      date: new Date(),
+      userId: ""
   }
 }
   // 2. Configuración de reducer y creación del estado global
@@ -64,11 +65,13 @@ const updateMood = async (form, moodId) => {
 }
 
 const deleteMood = async (form, moodId) => {
+  const userId = form.userId
   const deletedMood  = await axiosClient.delete(`moods/delete/${moodId}`, form)
   dispatch({
     type: "DELETE_MOOD",
     payload: deletedMood
     })
+    window.location.replace(`../moods/chart/${userId}`);
 }
 
   // 4. Retorno. para que pueda retornar todos los datos, necesitamos un provider: da acceso a db

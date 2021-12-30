@@ -55,6 +55,11 @@ export default function EditMood() {
     updateMood(moodData, idMood);
   }
 
+  const handleDelete = (event) => {
+    event.preventDefault()
+    deleteMood(moodData, idMood)
+  }
+
   return (
     <>
       <form
@@ -128,14 +133,12 @@ export default function EditMood() {
                 >GUARDAR
                 </button>
 
-                {/* <Link to={`/`}>
-                <button onClick={deleteMod()}
+                <button onClick={(event) => {handleDelete(event)}}
                   type="submit"
                   className="bg-red-600 border mt-3 w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  BORRAR TU CUENTA
+                  BORRAR
                 </button>
-                </Link> */}
               </div>
             </div>
           

@@ -46,6 +46,11 @@ export default function Profile() {
     crearMood(newMood);
   };
 
+  const verMapa = (event) => {
+    event.preventDefault();
+    window.location.replace(`../moods/chart/${_id}`);
+  }
+
   return (
     <>
     {/* tarjeta de perfil */}
@@ -124,6 +129,14 @@ export default function Profile() {
       </div>
     </div>
 
+    <div className="flex flex-row justify-center items-center">
+        <div className="flex flex-col bg-yellow-300 rounded max-w-sm md:max-w-md lg:max-w-lg justify-center pr-2 pl-1 justify-self-center shadow-lg my-8 text-center">
+          <button type="submit" onClick={(e) => {verMapa(e)}}
+                  className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  VER DETALLES
+          </button>
+        </div>
+    </div>
 
     </>
   );

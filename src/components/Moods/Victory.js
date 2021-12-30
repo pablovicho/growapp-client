@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   VictoryBar,
   VictoryChart,
@@ -10,23 +10,33 @@ import {
 import MoodContext from "../../context/Mood/MoodContext";
 import logo3 from "../../images/logo3.png";
 
+// const filter = (mood) => {
+// return mood.
+// }
+
 export default function Victory() {
   const ctx = useContext(MoodContext);
-  const { getMoods, moods, singleMood } = ctx;
-  const {_id} = singleMood
+  const { getMoods, moods } = ctx;
+  const params = useParams()
+  const userId = params.id
 
   useEffect(() => {
     getMoods();
   }, []);
 
-  const moodData = moods.map((e)=> {
+  const filteredMoods = moods.filter((mood) => {
+    return mood.userId === userId
+  })
+  console.log(filteredMoods)
+
+  const moodData = filteredMoods.map((e)=> {
     // const day = e.date.getUTCDate()
     return {day:e.date, mood:e.moodEntry}
   })
 
   return (
-    <div>
-      <div className="ml-7 mt-10">
+    <div className="bg-gradient-to-r from-lime-600 to-lime-500">
+      <div className="ml-7 pt-10">
         <h1 className="text-center text-4x1">Estados de ánimo</h1>
         <VictoryChart domainPadding={10} theme={VictoryTheme.material}>
           <VictoryAxis
@@ -46,7 +56,7 @@ export default function Victory() {
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="flex justify-center mt-2">
             <ul>
-              {moods.map((e) => {
+              {filteredMoods.map((e) => {
                 return (
                   <Link to={`/moods/${e._id}`}>
                   <li>
@@ -60,9 +70,6 @@ export default function Victory() {
                             </h2>
                             <span className="text-blue-500 block mb-5">
                               {e.comment}
-                            </span>
-                            <span className="text-blue-500 block mb-5">
-                              {e.userId}
                             </span>
                           </div>
                         </div>
