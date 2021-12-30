@@ -48,7 +48,7 @@ export default function Victory() {
             <ul>
               {moods.map((e) => {
                 return (
-                  <Link to={`/moods/${_id}`}>
+                  <Link to={`/moods/${e._id}`}>
                   <li>
                     <div id="container" className="w-4/5 mx-auto">
                       <div className="flex flex-col sm:flex-row">
