@@ -61,15 +61,15 @@ export default function Victory() {
                 return (
                   <Link to={`/moods/${e._id}`}>
                   <li>
-                    <div id="container" className="w-4/5 mx-auto">
+                    <div id="container" className="w-full mx-auto">
                       <div className="flex flex-col sm:flex-row">
                         {/* este es el width del cuadro del mood, está en w-auto, pero habrá que ajustarlo */}
-                        <div className="sm:w-auto p-2"> 
-                          <div className="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-                            <h2 className="text-xl font-medium text-gray-700">
+                        <div className="w-full p-2"> 
+                          <div className="flex flex-col justify-center items-center bg-white rounded w-full max-w-sm md:max-w-md lg:max-w-lg pr-2 pl-10 pr-20 shadow-lg my-1">
+                            <h2 className="text-xl font-medium text-gray-700 text-center">
                               {e.date}:
                             </h2>
-                            <span className="text-blue-500 block mb-5">
+                            <span className="text-slate-500 block mb-5 text-left">
                               {e.comment}
                             </span>
                           </div>
