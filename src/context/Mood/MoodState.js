@@ -51,7 +51,6 @@ dispatch({
 const crearMood = (async(form, userId) => {
   const res = await axiosClient.post("moods/create", form)
   console.log("mood creado con éxito", res)
-  window.location.replace(`../moods/chart/${userId}`);
 })
 
 
@@ -65,13 +64,12 @@ const updateMood = async (form, moodId) => {
 }
 
 const deleteMood = async (form, moodId) => {
-  const userId = form.userId
+  // const userId = form.userId
   const deletedMood  = await axiosClient.delete(`moods/delete/${moodId}`, form)
   dispatch({
     type: "DELETE_MOOD",
     payload: deletedMood
     })
-    window.location.replace(`../moods/chart/${userId}`);
 }
 
   // 4. Retorno. para que pueda retornar todos los datos, necesitamos un provider: da acceso a db

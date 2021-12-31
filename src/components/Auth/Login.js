@@ -31,9 +31,8 @@ export default function Login() {
 	const handleSubmit = (e) => {
 		
 		e.preventDefault()
-
 		loginUser(logUser)
-
+    // window.location.replace(`../profile/${logUser._id}`);
 	}
 
 	return (

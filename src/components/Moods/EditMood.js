@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import MoodContext from "../../context/Mood/MoodContext";
 import { useParams } from "react-router-dom";
 import logo4 from "../../images/logo4.png"
+import UserContext from "../../context/User/UserContext";
 
 export default function EditMood() {
   // estado global: state
@@ -10,6 +11,8 @@ export default function EditMood() {
 
   const ctx = useContext(MoodContext);
   const { getMood, updateMood, deleteMood, singleMood } = ctx;
+  const userCtx = useContext(UserContext)
+  const {singleUser} = userCtx
   
   // const navigate = useNavigate()
   
@@ -53,11 +56,13 @@ export default function EditMood() {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateMood(moodData, idMood);
+    window.location.replace(`../moods/chart/${singleUser._id}`);
   }
 
   const handleDelete = (event) => {
     event.preventDefault()
     deleteMood(moodData, idMood)
+    window.location.replace(`../moods/chart/${singleUser._id}`);
   }
 
   return (

@@ -12,17 +12,29 @@ export default function AuthRoute({ component: Component, ...props }) {
 
     const [loading, setLoading] = useState(true)
 
-    useEffect(async () => {
-        await verifyingToken()
-        setLoading(false)
+    // useEffect(async () => {
+    //     await verifyingToken()
+    //     setLoading(false)
 
-    }, [authStatus])
+    // }, [authStatus])
+
+	useEffect(() => {
+		async function fetchData() {
+		  // You can await here
+		  await verifyingToken()
+		  setLoading(false)
+		  // ...
+		}
+		fetchData();
+	  }, [authStatus]); // Or [] if effect doesn't need props or state
 
     return (
+		
 		<>
+{/* aquí quisiera que llegara a /profile/:id, pero no encuentro una forma clara de lograr meter el id. Voy en {`/profile/${userData._id}`}*/}
 			{
 				authStatus ?
-				(<Navigate replace to="/profile" />)
+				(<Navigate replace to="/"/>)
 				:
 				(<Component/>)
 			}

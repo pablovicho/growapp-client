@@ -30,8 +30,9 @@ export default function Victory() {
   console.log(filteredMoods)
 
   const moodData = filteredMoods.map((e)=> {
-    // const day = e.date.getUTCDate()
-    return {day:e.date, mood:e.moodEntry}
+     const day = e.date
+     console.log(day)
+    return {day:day, mood:e.moodEntry}
   })
 
   return (
@@ -40,7 +41,7 @@ export default function Victory() {
         <h1 className="text-center text-4x1">Estados de ánimo</h1>
         <VictoryChart domainPadding={10} theme={VictoryTheme.material}>
           <VictoryAxis
-            tickValues={["Dec 19", "Dec 20", "Dec 21", "Dec 22", "Dec 23"]}
+            tickValues={[]}
           />
           <VictoryAxis
             dependentAxis

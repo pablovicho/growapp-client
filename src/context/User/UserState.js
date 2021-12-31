@@ -25,7 +25,7 @@ const UserState = (props) => {
 	}
 
 	// 2. CONFIGURACIÓN DEL REDUCER
-	const [globalState, dispatch] = useReducer(UserReducer, initialState)
+	const [globalState, dispatch] = useReducer(UserReducer, initialState) //acá se crea el dispatch, que se llena en el reducer
 
 
 	// 3. FUNCIONES
@@ -41,14 +41,13 @@ const UserState = (props) => {
 
 	const loginUser = async (form) => {
 		const res = await axiosClient.post("users/login", form)
-		console.log(res)
 		const token = res.data.data
+		const {_id} = token
 
 		dispatch({
 			type: "LOGIN_EXITOSO",
 			payload: token
 		})
-		
 	}
 
 	const verifyingToken = async () => {

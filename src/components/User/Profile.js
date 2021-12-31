@@ -4,6 +4,7 @@ import { Params } from "react-router-dom";
 import UserContext from "../../context/User/UserContext";
 import MoodContext from "../../context/Mood/MoodContext";
 import { Link, Outlet } from "react-router-dom";
+import moment from "moment"
 //png
 import feliz from "../../images/Feliz.png";
 import enojado from "../../images/Enojado.png";
@@ -24,7 +25,7 @@ export default function Profile() {
   const [newMood, setNewMood] = useState({
     moodEntry: 7,
     comment: "",
-    date: new Date(),
+    date: moment().format('L'),
     userId: _id
   });
 
@@ -37,13 +38,14 @@ export default function Profile() {
       ...newMood,
       [e.target.name]: e.target.value,
     });
-    console.log("hola, esto es el handleChange cambiando")
+    console.log("hola, esto es el handleChange cambiando", newMood.date)
   };
 
   const handleSubmit = (event) => {
     // console.log(newMood)
     event.preventDefault();
     crearMood(newMood);
+    verMapa(event)
   };
 
   const verMapa = (event) => {
@@ -52,7 +54,7 @@ export default function Profile() {
   }
 
   return (
-    <>
+    <div className="bg-gradient-to-tl from-lime-700 to-lime-600">
     {/* tarjeta de perfil */}
    
       <div className="flex flex-row justify-center items-center">
@@ -72,7 +74,7 @@ export default function Profile() {
               <Link to={`/editar/${_id}`}>
                 <button
                   type="button"
-                  className="block uppercase mx-auto shadow bg-lime-700 hover:bg-lime-600 shadow-lg focus:shadow-outline focus:outline-none font-lg mb-4 text-white text-sm py-3 px-5 rounded"
+                  className="block uppercase mx-auto shadow bg-lime-600 hover:bg-lime-700 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500 font-lg mb-4 text-white text-sm py-3 px-5 rounded"
                 >
                   <b>Editar perfil</b>
                 </button>
@@ -84,7 +86,7 @@ export default function Profile() {
       <Outlet/>
 {/* forma para guardar moods */}
       <div className="flex flex-row justify-center items-center">
-        <div className="flex flex-col bg-yellow-300 rounded max-w-sm md:max-w-md lg:max-w-lg justify-center pr-2 pl-1 justify-self-center shadow-lg my-8 text-center">
+        <div className="flex flex-col bg-orange-50 rounded w-full max-w-sm md:max-w-md lg:max-w-lg justify-center pr-2 pl-1 justify-self-center shadow-lg my-2 text-center">
          
         <form onSubmit={(event) => {handleSubmit(event)}}> 
             <h1 className="text-2xl text-lime-800 font-semibold mt-5 mb-2">¿Cómo te encuentras hoy?</h1>
@@ -118,10 +120,10 @@ export default function Profile() {
 
            
             <div className="flex flex-col justify-center items-center mt-3  ">
-            <textarea placeholder="¿Quieres añadir un comentario?" name="comment" className="w-11/12" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
+            <textarea placeholder="¿Quieres añadir un comentario?" name="comment" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
 
             <button type="submit"
-                  className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
                   GUARDAR
             </button>
           </div>
@@ -130,14 +132,14 @@ export default function Profile() {
     </div>
 
     <div className="flex flex-row justify-center items-center">
-        <div className="flex flex-col bg-yellow-300 rounded max-w-sm md:max-w-md lg:max-w-lg justify-center pr-2 pl-1 justify-self-center shadow-lg my-8 text-center">
+        <div className="flex flex-col justify-center items-center bg-orange-50 rounded max-w-sm md:max-w-md w-full lg:max-w-lg pr-2 pl-20 pr-20 shadow-lg my-8 text-center">
           <button type="submit" onClick={(e) => {verMapa(e)}}
-                  className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  VER DETALLES
+                  className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
+                  VER MÁS
           </button>
         </div>
     </div>
 
-    </>
+    </div>
   );
 }
