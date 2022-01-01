@@ -8,6 +8,7 @@ import Profile from './components/User/Profile'
 import About from  './pages/About'
 import Edit from './components/User/Edit'
 import EditMood from './components/Moods/EditMood'
+import SingleMood from './components/Moods/SingleMood'
 import Victory from './components/Moods/Victory'
 
 import UserState from './context/User/UserState'
@@ -33,7 +34,8 @@ const Router = () => {
 							<Route path="editar/:id" element={<Private component={Edit} />} />
                             <Route path="sobre-nosotros" element={<About/>} />
 							<Route path="moods/chart/:id" element={<Victory/>}/>
-							<Route path="moods/:id" element={<Private component={EditMood} />} />
+							<Route path="moods/:id" element={<Private component={SingleMood} />} />
+							<Route path="moods/:id/edit" element={<Private component={EditMood} />} />
 							<Route path="*" element={<h1>Error 404. <br/> ¡Parece que la ruta no existe!</h1>}></Route>
 						</Route>
 					</Routes>

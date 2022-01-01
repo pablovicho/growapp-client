@@ -54,7 +54,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="bg-gradient-to-tl from-lime-700 to-lime-600">
+    <div className="bg-gradient-to-tl from-lime-600 to-lime-500">
     {/* tarjeta de perfil */}
    
       <div className="flex flex-row justify-center items-center">
