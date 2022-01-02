@@ -19,8 +19,12 @@ export default function SingleMood() {
 		const {
 			moodEntry,
       comment,
+      day,
+      month
 		} = singleMood
   },[])
+
+  console.log(singleMood)
 
   const toEdit = (event) => {
     event.preventDefault();
@@ -28,7 +32,7 @@ export default function SingleMood() {
   };
 
   return (
-    <div className="bg-lime-500">
+    <div className="bg-lime-100">
       <div className="flex flex-row justify-center items-center">
         <div className="max-w-sm md:max-w-md lg:max-w-lg bg-lime-50 rounded overflow-hidden shadow-lg my-8 text-center">
           <img
@@ -37,18 +41,26 @@ export default function SingleMood() {
             alt="Sunset in the mountains"
           />
           <div className="px-6 py-4">
-            <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-8">
+            <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-1">
+              Día:
+            </div>
+            <div className=" text-lg mb-2 text-lime-800 justify-center mt-0">
+              {singleMood.day} of {singleMood.month}
+            </div>
+          </div>
+          <div className="px-6 py-4">
+            <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-1">
               Tu estado de ánimo:
             </div>
-            <div className=" text-lg mb-2 text-lime-800 justify-center mt-8">
+            <div className=" text-lg mb-2 text-lime-800 justify-center mt-0">
               {moodArray[singleMood.moodEntry]}
             </div>
           </div>
           <div className="px-6 py-4">
-            <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-8">
+            <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-1">
               Tu comentario:
             </div>
-            <div className=" text-lg mb-2 text-lime-800 justify-center mt-8">
+            <div className=" text-lg mb-2 text-lime-800 justify-center mt-0">
               {singleMood.comment}
             </div>
           </div>
