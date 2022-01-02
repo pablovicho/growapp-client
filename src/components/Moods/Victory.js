@@ -46,7 +46,7 @@ export default function Victory() {
           />
           <VictoryAxis
             dependentAxis
-            tickValues={["Mal", "Molesto", "Triste", "Normal", "Bien"]} //este es el que cambia el texto del data del eje y
+            tickValues={["Mal", "Molesto", "Triste", "Normal", "Feliz"]} //este es el que cambia el texto del data del eje y
           />
           <VictoryStack colorScale={"green"}>
             <VictoryBar data={moodData} x={"day"} y={"mood"} />

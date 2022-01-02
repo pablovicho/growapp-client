@@ -133,11 +133,12 @@ export default function Profile() {
     </div>
 
     <div className="flex flex-row justify-center items-center">
-        
-          <button type="submit" onClick={(e) => {verMapa(e)}}
+        <Link to={`/moods/chart/${_id}`}>
+          <button type="submit"
                   className="mt-5 mb-7 bg-lime-50 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-lime-700 hover:bg-lime-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
                   VER MÁS
           </button>
+          </Link>
      
     </div>
 
