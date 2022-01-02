@@ -28,27 +28,27 @@ export default function SingleMood() {
   };
 
   return (
-    <div>
+    <div className="bg-lime-500">
       <div className="flex flex-row justify-center items-center">
-        <div className="max-w-sm md:max-w-md lg:max-w-lg bg-orange-50 rounded overflow-hidden shadow-lg my-8 text-center">
+        <div className="max-w-sm md:max-w-md lg:max-w-lg bg-lime-50 rounded overflow-hidden shadow-lg my-8 text-center">
           <img
             className="w-full"
             src="https://i2.pickpik.com/photos/790/916/941/plant-young-plants-small-plant-seedling-preview.jpg"
             alt="Sunset in the mountains"
           />
           <div className="px-6 py-4">
-            <div className="font-bold text-3xl mb-2 text-yellow-900 justify-center mt-8">
+            <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-8">
               Tu estado de ánimo:
             </div>
-            <div className="font-semibold text-2xl mb-2 text-lime-800 justify-center mt-8">
+            <div className=" text-lg mb-2 text-lime-800 justify-center mt-8">
               {moodArray[singleMood.moodEntry]}
             </div>
           </div>
           <div className="px-6 py-4">
-            <div className="font-bold text-3xl mb-2 text-yellow-900 justify-center mt-8">
+            <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-8">
               Tu comentario:
             </div>
-            <div className="font-semibold text-2xl mb-2 text-lime-800 justify-center mt-8">
+            <div className=" text-lg mb-2 text-lime-800 justify-center mt-8">
               {singleMood.comment}
             </div>
           </div>

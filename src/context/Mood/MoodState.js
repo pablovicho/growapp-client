@@ -8,6 +8,7 @@ import { useContext, useReducer } from "react"; //es como useState
 import MoodContext from "./MoodContext";
 import MoodReducer from "./MoodReducer";
 import axiosClient from "../../config/axios";
+import moment from "moment"
 
 const MoodState = (props) => {
   // 1. Estado inicial
@@ -19,6 +20,8 @@ const MoodState = (props) => {
       moodEntry: "",
 	    comment: "",
       date: new Date(),
+      month: moment().format("MMM"),
+      day: moment().format("DD"),
       userId: ""
   }
 }

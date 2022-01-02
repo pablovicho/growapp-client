@@ -30,8 +30,7 @@ export default function Victory() {
   console.log(filteredMoods)
 
   const moodData = filteredMoods.map((e)=> {
-     const day = e.date
-     console.log(day)
+     const day = e.day
     return {day:day, mood:e.moodEntry}
   })
 
@@ -67,7 +66,7 @@ export default function Victory() {
                         <div className="w-full p-2"> 
                           <div className="flex flex-col justify-center items-center bg-white rounded w-full max-w-sm md:max-w-md lg:max-w-lg pr-2 pl-10 pr-20 shadow-lg my-1">
                             <h2 className="text-xl font-medium text-gray-700 text-center">
-                              {e.date}:
+                              {e.day} del {e.month}:
                             </h2>
                             <span className="text-slate-500 block mb-5 text-left">
                               {e.comment}

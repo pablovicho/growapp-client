@@ -1,6 +1,5 @@
 //importaciones
-import React, { useState, useContext, useEffect } from "react";
-import { Params } from "react-router-dom";
+import React, { useState, useContext } from "react";
 import UserContext from "../../context/User/UserContext";
 import MoodContext from "../../context/Mood/MoodContext";
 import { Link, Outlet } from "react-router-dom";
@@ -19,14 +18,16 @@ export default function Profile() {
   const ctxMood = useContext(MoodContext);
   const { crearMood } = ctxMood;
   const { singleUser } = ctxUser;
-  const { nombre, _id, email, terapeuta } = singleUser;
+  const { nombre, _id } = singleUser;
 
   // estado local: context  (apenas se capturan los datos, se utilizan en un action.post)
   const [newMood, setNewMood] = useState({
     moodEntry: 7,
     comment: "",
-    date: moment().format('L'),
-    userId: _id
+    date: new Date(),
+    userId: _id,
+    month: moment().format("MMM"),
+      day: moment().format("DD")
   });
 
   
@@ -58,10 +59,10 @@ export default function Profile() {
     {/* tarjeta de perfil */}
    
       <div className="flex flex-row justify-center items-center">
-        <div className="max-w-sm md:max-w-md lg:max-w-lg bg-orange-50 rounded overflow-hidden shadow-lg my-8 text-center">
+        <div className="max-w-sm md:max-w-md lg:max-w-lg bg-lime-50 rounded overflow-hidden shadow-lg my-8 text-center">
           <img
             className="w-full"
-            src="https://tailwindcss.com/img/card-top.jpg"
+            src="https://i2.pickpik.com/photos/790/916/941/plant-young-plants-small-plant-seedling-preview.jpg"
             alt="Sunset in the mountains"
           />
           <div className="px-6 py-4">
@@ -86,33 +87,33 @@ export default function Profile() {
       <Outlet/>
 {/* forma para guardar moods */}
       <div className="flex flex-row justify-center items-center">
-        <div className="flex flex-col bg-orange-50 rounded w-full max-w-sm md:max-w-md lg:max-w-lg justify-center pr-2 pl-1 justify-self-center shadow-lg my-2 text-center">
+        <div className="flex flex-col bg-lime-50 rounded w-full max-w-sm md:max-w-md lg:max-w-lg justify-center pr-2 pl-1 justify-self-center shadow-lg my-2 text-center">
          
         <form onSubmit={(event) => {handleSubmit(event)}}> 
             <h1 className="text-2xl text-lime-800 font-semibold mt-5 mb-2">¿Cómo te encuentras hoy?</h1>
             <div className="flex flex-row justify-center items-center">
 
-              <input name="moodEntry" type="image" src={feliz} alt="Happy face" className="w-20"
+              <input name="moodEntry" type="image" src={feliz} alt="Happy face" className="w-20 hover:opacity-70 focus:opacity-50"
                 onClick={(e) => {handleChange(e)}}
                 value={4} id="happy">
               </input>
 
-             <input name="moodEntry" type="image" src={normal} alt="Normal face" className="w-20"
+             <input name="moodEntry" type="image" src={normal} alt="Normal face" className="w-20 hover:opacity-70 focus:opacity-50"
                 onClick={(e) => {handleChange(e)}}
                 value={3} id="normal">
               </input>
 
-              <input name="moodEntry" type="image" src={triste} alt="Sad face" className="w-20"
+              <input name="moodEntry" type="image" src={triste} alt="Sad face" className="w-20 hover:opacity-70 focus:opacity-50"
                 onClick={(e) => {handleChange(e)}}
                 value={2} id="sad">
               </input>
 
-              <input name="moodEntry" type="image" src={enojado} alt="Angry face" className="w-20"
+              <input name="moodEntry" type="image" src={enojado} alt="Angry face" className="w-20 hover:opacity-70 focus:opacity-50"
                 onClick={(e) => {handleChange(e)}}
                 value={1} id="angry">
               </input>
               
-              <input name="moodEntry" type="image" src={muerto} alt="Dead face" className="w-20"
+              <input name="moodEntry" type="image" src={muerto} alt="Dead face" className="w-20 hover:opacity-70 focus:opacity-50"
                 onClick={(e) => {handleChange(e)}}
                 value={0} id="dead">
               </input>
@@ -132,12 +133,12 @@ export default function Profile() {
     </div>
 
     <div className="flex flex-row justify-center items-center">
-        <div className="flex flex-col justify-center items-center bg-orange-50 rounded max-w-sm md:max-w-md w-full lg:max-w-lg pr-2 pl-20 pr-20 shadow-lg my-8 text-center">
+        
           <button type="submit" onClick={(e) => {verMapa(e)}}
-                  className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
+                  className="mt-5 mb-7 bg-lime-50 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-lime-700 hover:bg-lime-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
                   VER MÁS
           </button>
-        </div>
+     
     </div>
 
     </div>

@@ -61,26 +61,26 @@ export default function Edit() {
   }
 
   return (
-    <>
+    <div className="bg-lime-500">
       <form
             onSubmit={(event) => {
               handleSubmit(event)
             }}
           >
-      <div className="flex flex-column  justify-center items-center">
-        <div className="max-w-sm bg-orange-50 rounded overflow-hidden shadow-lg my-8 text-center">
+      <div className="flex flex-col justify-center items-center">
+        <div className="max-w-sm bg-lime-50 rounded overflow-hidden shadow-lg my-8 text-center">
         <div className="flex justify-center mt-2">
         <img src={logo4} alt="logo"/>
         </div>
             <div className="shadow sm:rounded-md sm:overflow-hidden">
-              <div className="bg-white py-6 px-4 bg-orange-50 space-y-6 sm:p-6">
+              <div className="flex flex-col py-6 px-4 bg-lime-50 space-y-6 sm:p-6">
                 <div>
                   <h3 className="text-lg leading-6 font-medium text-gray-900">
                     Editar usuario
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-6 gap-6">
+                <div className="flex flex-col">
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="nombre"
@@ -171,7 +171,7 @@ export default function Edit() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col px-4 py-3 bg-orange-50 text-center items-center sm:px-6">
+              <div className="flex flex-col px-4 pt-5 pb-3 bg-lime-50 text-center items-center sm:px-6">
 
                 <button
                   type="submit" className="bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-2"
@@ -192,6 +192,6 @@ export default function Edit() {
         </div>
       </div>
       </form>
-    </>
+    </div>
   );
 }
