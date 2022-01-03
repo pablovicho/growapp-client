@@ -47,6 +47,7 @@ export default function Profile() {
     // console.log(newMood)
     event.preventDefault();
     crearMood(newMood);
+    navigate(`/moods/chart/${_id}`)
   };
 
   return (
@@ -118,7 +119,7 @@ export default function Profile() {
             <div className="flex flex-col justify-center items-center mt-3  ">
             <textarea placeholder="¿Quieres añadir un comentario?" name="comment" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
 
-            <button type="submit" onClick={() => {navigate(`/moods/chart/${_id}`)}}
+            <button type="submit"
                   className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
                   GUARDAR
             </button>
