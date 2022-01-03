@@ -110,15 +110,13 @@ export default function EditMood() {
         <div className="flex flex-col justify-center items-center mt-3  ">
         <textarea value={moodData.comment} name="comment" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
 
-        <button type="submit" onClick={(e) => {navigate(`../chart/${singleUser._id}`)}}
+        <button type="submit" onClick={() => {navigate(`../moods/chart/${singleUser._id}`)}}
               className="mt-5 mb-4 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
               GUARDAR
         </button>
-        <button onClick={(event) => 
-        {handleDelete(event);
-        navigate(`../chart/${singleUser._id}`)
-        }}
-                  type="submit"
+        <button type="submit" onClick={(event) => {
+          handleDelete(event);
+          navigate(`../moods/chart/${singleUser._id}`)}} 
                   className=" border mt-0 w-20 border-transparent rounded-md shadow-sm pt-0 pb-2 px-0 inline-flex justify-center text-sm font-medium text-red-600 hover:text-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   BORRAR
