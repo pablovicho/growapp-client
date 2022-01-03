@@ -47,7 +47,7 @@ export default function Header() {
 									PERFIL
 								</Link>
 								<button onClick={() => {logoutUser()
-								navigate(`../profile/${_id}`)
+								navigate(`../`)
 								}} href="/" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-blue-500 hover:to-blue-600">CERRAR SESIÓN</button>
 								</>
 								:
