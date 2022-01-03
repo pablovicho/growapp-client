@@ -8,12 +8,7 @@ const UserState = (props) => {
 
 	// 1. INITIAL STATE
 	const initialState = {
-		// currentUser: {
-		// 	nombre: "",
-		// 	email: "",
-		// 	password: "",
-        //     terapeuta: false
-		// },
+		
 		singleUser: {
 			_id:"",
 			nombre: "",
@@ -26,7 +21,6 @@ const UserState = (props) => {
 
 	// 2. CONFIGURACIÓN DEL REDUCER
 	const [globalState, dispatch] = useReducer(UserReducer, initialState) //acá se crea el dispatch, que se llena en el reducer
-
 
 	// 3. FUNCIONES
 	const registerUser = async (form) => {
@@ -42,7 +36,7 @@ const UserState = (props) => {
 	const loginUser = async (form) => {
 		const res = await axiosClient.post("users/login", form)
 		const token = res.data.data
-		const {_id} = token
+		// const {_id} = token
 
 		dispatch({
 			type: "LOGIN_EXITOSO",
@@ -51,9 +45,7 @@ const UserState = (props) => {
 	}
 
 	const verifyingToken = async () => {
-
 		const token = localStorage.getItem("token")
-
 		// ANEXAR TOKEN A LA SIGUIENTE PETICIÓN DE AXIOS
 		if(token) {
 			axiosClient.defaults.headers.common["x-auth-token"] = token
@@ -62,7 +54,6 @@ const UserState = (props) => {
 		}
 
 		try {
-			
 			const res = await axiosClient.get("users/verifytoken")
 			const userData = res.data.data
 			dispatch({
@@ -76,11 +67,9 @@ const UserState = (props) => {
 	}
 
 	const logoutUser = async () => {
-
 		dispatch({
             type: "LOGOUT_USUARIO"
         })
-		// window.location.replace('/')
 	}
 
 	const getUser = async(userId) => {
@@ -102,7 +91,6 @@ const UserState = (props) => {
 		})
 		// window.location.replace;
 	  }
-
 	
 	const deleteUser = async (form, userId) => {
 		const deletedUser  = await axiosClient.delete(`users/delete/${userId}`)
@@ -111,8 +99,6 @@ const UserState = (props) => {
 			payload: deletedUser
 		  })
 	}
-
-
 
 	// 4. RETORNO
 	return (
@@ -131,7 +117,6 @@ const UserState = (props) => {
 			}}
 		>
 			{props.children}
-
 		</UserContext.Provider>
 	)
 }

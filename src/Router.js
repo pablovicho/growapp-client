@@ -22,25 +22,24 @@ const Router = () => {
 	return (
 		<>
 		<UserState>
-		<MoodState>
+			<MoodState>
 				<BrowserRouter>
 					<Routes>
 						<Route path="/" element={<Layout />}>
 							<Route index element={<Home />} />
 							<Route path="registro" element={<Auth component={Register} />}/>
 							<Route path="iniciar-sesion" element={<Auth component={Login} />} />
-							<Route path="profile/:id" element={<Private component={Profile} />}>
-							</Route>
+							<Route path="profile/:id" element={<Private component={Profile} />}/>
 							<Route path="editar/:id" element={<Private component={Edit} />} />
                             <Route path="sobre-nosotros" element={<About/>} />
-							<Route path="moods/chart/:id" element={<Victory/>}/>
+							<Route path="moods/chart/:id" element={<Private component={Victory}/>}/>
 							<Route path="moods/:id" element={<Private component={SingleMood} />} />
 							<Route path="moods/:id/edit" element={<Private component={EditMood} />} />
 							<Route path="*" element={<h1>Error 404. <br/> ¡Parece que la ruta no existe!</h1>}></Route>
 						</Route>
 					</Routes>
 				</BrowserRouter>
-				</MoodState>
+			</MoodState>
 		</UserState>
 		</>
 	)

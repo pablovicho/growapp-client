@@ -20,14 +20,13 @@ export default function Login() {
 
   const handleChange = (e) => {
 		e.preventDefault()
-
 		setLogUser({
 			...logUser,
 			[e.target.name]: e.target.value
+      
 		})
 
 	}
-
 	const handleSubmit = (e) => {
 		
 		e.preventDefault()
