@@ -1,10 +1,10 @@
 import React, {useState, useContext} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import UserContext from '../../context/User/UserContext'
 import logo3 from "../../images/logo3.png"
 
 export default function Login() {
-
+  let navigate = useNavigate()
   const ctx = useContext(UserContext)
 
   const {
@@ -32,7 +32,7 @@ export default function Login() {
 		
 		e.preventDefault()
 		loginUser(logUser)
-    // window.location.replace(`../profile/${logUser._id}`);
+    navigate(`../profile/${logUser._id}`);
 	}
 
 	return (

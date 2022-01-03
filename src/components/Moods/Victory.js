@@ -27,17 +27,16 @@ export default function Victory() {
   const filteredMoods = moods.filter((mood) => {
     return mood.userId === userId
   })
-  console.log(filteredMoods)
+ 
 
-  const moodData = filteredMoods.map((e)=> {
-     const day = e.day
-    return {day:day, mood:e.moodEntry}
+  const moodData = filteredMoods.map((e)=> { 
+    return {day:e.day, mood:e.moodEntry}
   })
-
+  console.log(moodData)
   return (
-    <div className="bg-gradient-to-r from-lime-600 to-lime-500">
+    <div className="">
       <div className="ml-7 pt-10">
-      <div>
+      <div className="font-bold text-3xl mb-2 justify-center mt-8">
         <h1 className="text-center text-4x1">Estados de ánimo</h1>
       </div>
         <VictoryChart domainPadding={10} theme={VictoryTheme.material}>

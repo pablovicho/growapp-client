@@ -80,7 +80,7 @@ const UserState = (props) => {
 		dispatch({
             type: "LOGOUT_USUARIO"
         })
-		window.location.replace('/')
+		// window.location.replace('/')
 	}
 
 	const getUser = async(userId) => {
@@ -100,7 +100,7 @@ const UserState = (props) => {
 		  type: "UPDATE_USER",
 		  payload: updatedUser
 		})
-		window.location.replace(`../profile/${userId}`);
+		// window.location.replace;
 	  }
 
 	

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import MoodContext from "../../context/Mood/MoodContext";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import logo4 from "../../images/logo4.png"
 import UserContext from "../../context/User/UserContext";
 
@@ -20,6 +20,8 @@ export default function EditMood() {
   const { getMood, updateMood, deleteMood, singleMood } = ctx;
   const userCtx = useContext(UserContext)
   const {singleUser} = userCtx
+
+  let navigate = useNavigate()
   
   // const navigate = useNavigate()
   
@@ -63,13 +65,11 @@ export default function EditMood() {
   const handleSubmit = (e) => {
     e.preventDefault();
     updateMood(moodData, idMood);
-    window.location.replace(`../chart/${singleUser._id}`);
   }
 
   const handleDelete = (event) => {
     event.preventDefault()
     deleteMood(moodData, idMood)
-    window.location.replace(`../chart/${singleUser._id}`);
   }
 
   return (
@@ -110,11 +110,14 @@ export default function EditMood() {
         <div className="flex flex-col justify-center items-center mt-3  ">
         <textarea value={moodData.comment} name="comment" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
 
-        <button type="submit"
+        <button type="submit" onClick={(e) => {navigate(`../chart/${singleUser._id}`)}}
               className="mt-5 mb-4 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
               GUARDAR
         </button>
-        <button onClick={(event) => {handleDelete(event)}}
+        <button onClick={(event) => 
+        {handleDelete(event);
+        navigate(`../chart/${singleUser._id}`)
+        }}
                   type="submit"
                   className=" border mt-0 w-20 border-transparent rounded-md shadow-sm pt-0 pb-2 px-0 inline-flex justify-center text-sm font-medium text-red-600 hover:text-red-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >

@@ -9,14 +9,12 @@ import { useNavigate } from 'react-router-dom'
 export default function Edit() {
   // estado global: state
   const params = useParams();
+  const navigate = useNavigate();
   const idUser = params.id;
 
   const ctx = useContext(UserContext);
   const { getUser, updateUser, deleteUser, singleUser } = ctx;
   
-  // const navigate = useNavigate()
-  
-
   // estado local: context  (apenas se capturan los datos, se utilizan en un action.post)
   const [userData, setUserData] = useState({
     nombre: "",
@@ -61,7 +59,7 @@ export default function Edit() {
   }
 
   return (
-    <div className="bg-lime-500">
+    <div className="">
       <form
             onSubmit={(event) => {
               handleSubmit(event)
@@ -173,7 +171,7 @@ export default function Edit() {
               </div>
               <div className="flex flex-col px-4 pt-5 pb-3 bg-lime-50 text-center items-center sm:px-6">
 
-                <button
+                <button onClick={() => {navigate(`/profile/${idUser}`)}}
                   type="submit" className="bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-2"
                 >GUARDAR
                 </button>

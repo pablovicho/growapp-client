@@ -1,18 +1,15 @@
 import React, {useContext} from 'react'
 import UserContext from '../context/User/UserContext'
 import logo3 from "../images/logo3.png"
+import { Link } from 'react-router-dom';
 
 
 
 export default function Home() {
   const ctxUser = useContext(UserContext);
   const { singleUser, authStatus } = ctxUser;
-  const { nombre, _id, terapeuta } = singleUser;
+  const { nombre, _id } = singleUser;
 
-  const verPerfil = (event) => {
-    event.preventDefault();
-    window.location.replace(`../profile/${_id}`);
-  }
 
 	return (
 		<div>
@@ -39,14 +36,16 @@ export default function Home() {
             </div>
           </div>
 
+      <Link to = {`../profile/${_id}`}>
           <div className="px-6 py-0">
             <div className="font-bold text-3xl mb-2 text-yellow-900 justify-center mt-8">
-            <button type="submit" onClick={(e) => {verPerfil(e)}}
+            <button type="submit"
                   className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   VER TU PERFIL
           </button>
             </div>
           </div>
+      </Link>
           </>
 :
           <div className="px-6 py-4">

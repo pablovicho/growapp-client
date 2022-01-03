@@ -2,7 +2,7 @@
 import React, { useState, useContext } from "react";
 import UserContext from "../../context/User/UserContext";
 import MoodContext from "../../context/Mood/MoodContext";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import moment from "moment"
 //png
 import feliz from "../../images/Feliz.png";
@@ -19,6 +19,7 @@ export default function Profile() {
   const { crearMood } = ctxMood;
   const { singleUser } = ctxUser;
   const { nombre, _id } = singleUser;
+  let navigate = useNavigate();
 
   // estado local: context  (apenas se capturan los datos, se utilizan en un action.post)
   const [newMood, setNewMood] = useState({
@@ -46,16 +47,10 @@ export default function Profile() {
     // console.log(newMood)
     event.preventDefault();
     crearMood(newMood);
-    verMapa(event)
   };
 
-  const verMapa = (event) => {
-    event.preventDefault();
-    window.location.replace(`../moods/chart/${_id}`);
-  }
-
   return (
-    <div className="bg-gradient-to-tl from-lime-600 to-lime-500">
+    <div className="">
     {/* tarjeta de perfil */}
    
       <div className="flex flex-row justify-center items-center">
@@ -123,7 +118,7 @@ export default function Profile() {
             <div className="flex flex-col justify-center items-center mt-3  ">
             <textarea placeholder="¿Quieres añadir un comentario?" name="comment" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
 
-            <button type="submit"
+            <button type="submit" onClick={() => {navigate(`/moods/chart/${_id}`)}}
                   className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
                   GUARDAR
             </button>

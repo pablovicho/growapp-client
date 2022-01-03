@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import MoodContext from "../../context/Mood/MoodContext";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function SingleMood() {
   const params = useParams();
   const idMood = params.id;
+  const navigate = useNavigate()
 
   const ctx = useContext(MoodContext);
   const { getMood, updateMood, deleteMood, singleMood } = ctx;
@@ -25,11 +26,6 @@ export default function SingleMood() {
   },[])
 
   console.log(singleMood)
-
-  const toEdit = (event) => {
-    event.preventDefault();
-    window.location.replace(`../moods/${idMood}/edit`);
-  };
 
   return (
     <div className="bg-lime-100">
@@ -67,8 +63,8 @@ export default function SingleMood() {
           <div className="px-6 py-4 flex justify-center">
             <div className="mt-0 flex md:mt-0">
               <button
-                onClick={(event) => {
-                  toEdit(event);
+                onClick={() => {
+                  navigate(`../moods/${idMood}/edit`);
                 }}
                 type="button"
                 className="block uppercase mx-auto shadow bg-lime-700 hover:bg-lime-600 shadow-lg focus:shadow-outline focus:outline-none font-lg mb-4 text-white text-sm py-3 px-5 rounded"
