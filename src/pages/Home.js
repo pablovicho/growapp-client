@@ -1,36 +1,31 @@
 import React, {useContext, useEffect, useState} from 'react'
 import UserContext from '../context/User/UserContext'
 import logo3 from "../images/logo3.png"
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axiosClient from '../config/axios';
-
-
 
 export default function Home() {
 
-  const [userData, setUserData] = useState({});
-  const loadUserData = async () => {
+  const [userData, setUserData] = useState({}); //esto es vital para que funcione al primer render: se inicializa el estado
+  const loadUserData = async () => { //se obtienen los datos con un async
     
     const res = await axiosClient.get("users/verifytoken")
     const data = res.data.data
-    console.log(data)
-    setUserData(data)
+    setUserData(data) //se asignan a userData con setUserData
   };
 
   useEffect(() => {
-    loadUserData()
+    loadUserData() //y al renderizar la página, se invoca el async, obteniendo los datos en userData
   }, []);
 
   const ctxUser = useContext(UserContext);
-  const { singleUser, authStatus, getUser } = ctxUser;
-  // const { nombre, _id } = singleUser;
+  const {authStatus} = ctxUser;
   const navigate = useNavigate()
 
   
 
 	return (
 		<div>
-			
 			<div className="flex flex-row justify-center items-center">
         <div className="max-w-sm md:max-w-md lg:max-w-lg bg-lime-50 rounded overflow-hidden shadow-lg my-8 text-center">
 		<img
@@ -62,7 +57,7 @@ export default function Home() {
             </div>
           </div>
           </>
-:
+                  :
           <div className="px-6 py-4">
             <div className="font-bold text-3xl mb-2 text-yellow-900 justify-center mt-8">
             ¡Bienvenid@!

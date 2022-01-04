@@ -74,7 +74,7 @@ export default function EditMood() {
   }
 
   return (
-    <div className="flex flex-row justify-center items-center bg-lime-500 py-8 h-full mb-0">
+    <div className="flex flex-row justify-center items-center py-8 h-full mb-0">
     <div className="flex flex-col bg-lime-50 rounded w-full max-w-sm md:max-w-md lg:max-w-lg justify-center pr-2 pl-1 justify-self-center shadow-lg my-2 text-center">
      
     <form onSubmit={(event) => {handleSubmit(event)}}> 
