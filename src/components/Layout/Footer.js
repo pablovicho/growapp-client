@@ -15,7 +15,7 @@ export default function Footer() {
               <FontAwesomeIcon className="h-sm w-auto" viewBox="300 0 24 24" icon={faGithub} />
             </a>
 
-            <a href="linkedin.com/in/pablo-valdes-b950066b/" className="text-gray-400 hover:text-gray-500">
+            <a href="https://linkedin.com/in/pablo-valdes-b950066b/" className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">faLinkedin</span>
               <FontAwesomeIcon className="h-sm w-auto" viewBox="0 0 24 24" icon={faLinkedin} />
             </a>

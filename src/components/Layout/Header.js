@@ -48,14 +48,14 @@ export default function Header() {
 								</Link>
 								<button onClick={() => {logoutUser()
 								navigate(`../`)
-								}} href="/" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-blue-500 hover:to-blue-600">CERRAR SESIÓN</button>
+								}} href="/" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-lime-100 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-lime-600 hover:lime-500 ">CERRAR SESIÓN</button>
 								</>
 								:
 								<>
-									<Link to="/registro" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-blue-500 hover:to-blue-600">
+									<Link to="/registro" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-lime-100 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-lime-600 hover:lime-500">
 										Crear cuenta
 									</Link>
-									<Link to="/iniciar-sesion" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-blue-700 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white hover:from-blue-500 hover:to-blue-600">
+									<Link to="/iniciar-sesion" className="ml-8 whitespace-nowrap inline-flex items-center justify-center bg-lime-100 bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-lime-600 hover:lime-500">
 										Iniciar sesión
 									</Link>
 								</>

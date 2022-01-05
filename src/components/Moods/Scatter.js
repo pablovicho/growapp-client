@@ -32,9 +32,9 @@ export default function Scatter() {
         }   // 😢😭😀😡💩😐
 
         const moodData = filteredMoods.map((e)=> { 
-          return {day:e.day, mood:e.moodEntry, icon:getIcon(e.moodEntry)}
+          return {day:e.day, mood:e.moodEntry+1, icon:getIcon(e.moodEntry)}
         }) 
-
+        console.log(moodData)
   class MoodPoint extends React.Component {
       // const oneMood = datum._y >= 0 ? "😻" : "😹";
       /* <text x={moodArray.day} y={moodArray.mood} fontSize={30}>
@@ -53,7 +53,7 @@ export default function Scatter() {
   return (
     <>
     <div className="ml-7 pt-10">
-      <div className="font-bold text-3xl mb-2 justify-center mt-8">
+      <div className="font-bold text-3xl mb-2 justify-center mt-8 text-yellow-900">
         <h1 className="text-center text-4x1">Estados de ánimo</h1>
       </div>
         <VictoryChart domainPadding={10}>
@@ -83,11 +83,11 @@ export default function Scatter() {
                       <div className="flex flex-col sm:flex-row ">
                         {/* este es el width del cuadro del mood, está en w-auto, pero habrá que ajustarlo */}
                         <div className="w-full p-2 "> 
-                          <div className="flex flex-col bg-emerald-50 justify-center items-center bg-white rounded w-full max-w-sm md:max-w-md lg:max-w-lg pr-2 pl-10 pr-20 shadow-lg my-1">
-                            <h2 className="text-xl font-medium text-gray-700 text-center">
+                          <div className="flex flex-col bg-green-50 justify-center items-center bg-white rounded w-full max-w-sm md:max-w-md lg:max-w-lg pr-2 pl-10 pr-20 shadow-lg my-1">
+                            <h2 className="text-xl font-medium text-yellow-800 text-center">
                               {e.day} de {e.month}:
                             </h2>
-                            <span className="text-slate-500 block mb-5 text-left">
+                            <span className="text-lime-700 block mb-5 text-left">
                               {e.comment}
                             </span>
                           </div>

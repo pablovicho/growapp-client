@@ -35,7 +35,7 @@ export default function Home() {
           />
 		  <div className='flex justify-center'>
 		  <img
-            className="w-80 mt-4 text-center"
+            className="w-80 mt-4 text-center ml-9"
             src={logo3}
             alt="logo"
           />
