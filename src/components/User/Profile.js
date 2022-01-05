@@ -27,7 +27,7 @@ export default function Profile() {
     comment: "",
     date: new Date(),
     userId: _id,
-    month: moment().format("MMM"),
+    month: moment().format("MM"),
       day: moment().format("DD")
   });
 

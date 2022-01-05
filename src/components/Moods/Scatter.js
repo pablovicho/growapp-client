@@ -35,6 +35,7 @@ export default function Scatter() {
           return {day:e.day, mood:e.moodEntry+1, icon:getIcon(e.moodEntry)}
         }) 
         console.log(moodData)
+
   class MoodPoint extends React.Component {
       // const oneMood = datum._y >= 0 ? "😻" : "😹";
       /* <text x={moodArray.day} y={moodArray.mood} fontSize={30}>
@@ -49,6 +50,7 @@ export default function Scatter() {
     }
   }
 
+  const monthArray = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sept", "Oct", "Nov", "Dic"]
 
   return (
     <>
@@ -85,7 +87,7 @@ export default function Scatter() {
                         <div className="w-full p-2 "> 
                           <div className="flex flex-col bg-green-50 justify-center items-center bg-white rounded w-full max-w-sm md:max-w-md lg:max-w-lg pr-2 pl-10 pr-20 shadow-lg my-1">
                             <h2 className="text-xl font-medium text-yellow-800 text-center">
-                              {e.day} de {e.month}:
+                              {e.day} de {monthArray[Number(e.month)]}:
                             </h2>
                             <span className="text-lime-700 block mb-5 text-left">
                               {e.comment}
