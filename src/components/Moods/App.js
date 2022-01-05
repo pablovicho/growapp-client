@@ -1,41 +1,33 @@
-import React, {useEffect, useContext, useState} from 'react'
-import MoodContext from '../../context/Mood/MoodContext'
-import Chart from './Chart'
+import React from "react";
+import { VictoryChart, VictoryScatter } from "victory";
+import Emoji from "../Emoji";
 
-export default function App() {
-
-  const ctx = useContext(MoodContext)
-  const {getMoods, moods} = ctx
-
-  const [moodData, setMoodData] = useState({
-		time: "",
-		value: 7,
-    comment:"",
-	})
-
-    useEffect(() => {
-      getMoods()
-    }, [])
-      console.log(moods)
-
-      useEffect(() => {
-
-        const {
-          time,
-          value,
-          comment
-        } = moods
-    
-        setMoodData({
-          time: time,
-          value: value,
-          comment: comment,
-        })
-      }, [moods])
-
-  return (
-    <>
-    <Chart chartData={moods}></Chart>
-    </>
-  )
+class CatPoint extends React.Component {
+  render() {
+    const {x, y, datum} = this.props; // VictoryScatter supplies x, y and datum
+    const cat = datum._y >= 0 ? "😀" : "😭"; 
+    // 😢😭😀😡💩😐
+    return (
+      <text x={x} y={y} fontSize={30}>
+        {cat}
+      </text>
+    );
+  }
 }
+
+class App extends React.Component {
+  render() {
+    return (
+      <VictoryChart>
+        <VictoryScatter
+          dataComponent={<CatPoint/>}
+          y={(d) => Math.sin(2 * Math.PI * d.x)}
+          samples={15}
+        />
+      </VictoryChart>
+    );
+  }
+}
+
+
+export default App
