@@ -7,31 +7,26 @@ import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-ic
 
 export default function Footer() {
 	return (
-	<div className="h-10 bg-blue-500">
+	<>
       <footer className="bg-white">
-        <div className="max-w-7xl  mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+        <div className="mx-auto py-12 px-0 overflow-hidden lg:px-8">
         
-          <div className="mt-0 flex relative justify-center space-x-7 space-y-5 mr-12">
+          <div className="mt-0 flex relative justify-center space-x-7 space-y-5 mr-5">
           
             <a href="https://github.com/pablovicho" className=" text-gray-400 hover:text-gray-500">
             <span className="sr-only">Github</span>
-              <FontAwesomeIcon className="absolute top-0 object-cover h-sm w-sm" viewBox="500 0 24 24" icon={faGithub} />
+              <FontAwesomeIcon className="absolute top-0 object-cover" icon={faGithub} />
             </a>
          
-
-          <div>
             <a href="https://linkedin.com/in/pablo-valdes-b950066b/" className="text-gray-400 socialIcons fa-fw hover:text-gray-500">
               <span className="sr-only">faLinkedin</span>
-              <FontAwesomeIcon className="absolute top-0 object-cover h-sm w-sm" viewBox="0 0 24 24" icon={faLinkedin}/>
+              <FontAwesomeIcon className="absolute top-0 object-cover" icon={faLinkedin}/>
             </a>
-          </div>
 
-          <div>
             <a href="https://twitter.com/pablovicho" className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">Twitter</span>
-              <FontAwesomeIcon className="absolute top-0 object-cover h-sm w-sm" viewBox="-450 0 24 24" icon={faTwitter} />
+              <FontAwesomeIcon className="absolute top-0 object-cover" icon={faTwitter} />
             </a>
-          </div>
 
           </div>
           <p className="mt-8 text-center text-base text-gray-400">
@@ -42,6 +37,6 @@ export default function Footer() {
           </p>
         </div>
       </footer>
-    </div>
+    </>
 	)
 }

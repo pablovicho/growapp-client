@@ -26,13 +26,13 @@ export default function Header() {
 
 	return (
 		<header className="bg-lime-700">
-			<nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-				<div className="w-full py-3 flex items-center justify-between border-b border-indigo-500 lg:border-none">
-					<div className="flex items-center">
+			<nav className="px-2" aria-label="Top">
+				<div className="py-2 flex justify-between">
+					<div className="relative overflow-hidden flex">
 						<Link to="/">
-							<img className="h-auto sm:object-scale-down w-auto shrink" src={logo1} alt="" style={{width:"50%", height:"auto"}} />
+							<img className="absolute min-w-6/4 object-cover w-full " src={logo1} alt="" />
 						</Link>
-						<div className="ml-10 space-x-8 lg:block">
+						<div className="absolute ">
 							<Link to="/sobre-nosotros" className="hidden md:block max-w-7xl text-base text-lg font-medium text-white hover:text-blue-50">
 								NOSOTROS
 							</Link>

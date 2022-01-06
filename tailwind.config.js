@@ -16,6 +16,12 @@ module.exports = {
         'footer-texture': "url('/client/public/bg-pattern.png')",
       }
     },
+    minWidth: {
+      '1/2': '50%',
+      '2/3': '66%',
+      '3/4': '75%',
+      '6/4': '150%'
+    }
   },
   plugins: [],
 }

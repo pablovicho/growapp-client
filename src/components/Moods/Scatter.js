@@ -85,7 +85,7 @@ export default function Scatter() {
                       <div className="flex flex-col sm:flex-row ">
                         {/* este es el width del cuadro del mood, está en w-auto, pero habrá que ajustarlo */}
                         <div className="w-full p-2 "> 
-                          <div className="flex flex-col bg-green-50 justify-center items-center bg-white rounded w-full max-w-sm md:max-w-md lg:max-w-lg pr-2 pl-10 pr-20 shadow-lg my-1">
+                          <div className="flex flex-col bg-slate-50 justify-center items-center rounded w-full max-w-sm md:max-w-md lg:max-w-lg pr-2 pl-10 pr-20 shadow-lg shadow-slate-200 my-1">
                             <h2 className="text-xl font-medium text-yellow-800 text-center">
                               {e.day} de {monthArray[Number(e.month)]}:
                             </h2>
