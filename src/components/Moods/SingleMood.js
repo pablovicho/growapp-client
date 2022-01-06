@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import MoodContext from "../../context/Mood/MoodContext";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function SingleMood() {
   const params = useParams();
@@ -8,9 +8,9 @@ export default function SingleMood() {
   const navigate = useNavigate()
 
   const ctx = useContext(MoodContext);
-  const { getMood, updateMood, deleteMood, singleMood } = ctx;
+  const { getMood, singleMood } = ctx;
 
-  const moodArray = ["mal", "triste", "enojado", "normal", "feliz"];
+  const moodArray = ["horrible", "triste", "enojado", "meh", "feliz"];
 
   useEffect(() => {
     getMood(idMood)
@@ -27,6 +27,8 @@ export default function SingleMood() {
 
   console.log(singleMood)
 
+  const monthArray = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+
   return (
     <div className="bg-lime-100">
       <div className="flex flex-row justify-center items-center">
@@ -41,7 +43,7 @@ export default function SingleMood() {
               Día:
             </div>
             <div className=" text-lg mb-2 text-lime-800 justify-center mt-0">
-              {singleMood.day} of {singleMood.month}
+              {singleMood.day} de {monthArray[Number(singleMood.month)]}
             </div>
           </div>
           <div className="px-6 py-4">

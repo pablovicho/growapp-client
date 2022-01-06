@@ -118,9 +118,9 @@ export default function Profile() {
            
             <div className="flex flex-col justify-center items-center mt-3  ">
 
-            <textarea placeholder="¿Por qué te sientes agradecid@ hoy?" name="gratitude" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
-            <textarea placeholder="¿Qué vas a hacer hoy para tratarte bonito?" name="selfCare" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
-            <textarea placeholder="¿Quieres añadir un comentario?" name="comment" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
+            <textarea placeholder="¿Por qué te sientes agradecid@ hoy?" name="gratitude" className="w-11/12 border-solid mb-8" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
+            <textarea placeholder="¿Qué vas a hacer hoy para tratarte bonito?" name="selfCare" className="w-11/12 border-solid mb-8" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
+            <textarea placeholder="¿Quieres añadir un comentario?" name="comment" className="w-11/12 border-solid mb-8" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
 
             <button type="submit"
                   className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-bold text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">

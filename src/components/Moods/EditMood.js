@@ -115,9 +115,11 @@ export default function EditMood() {
 
        
         <div className="flex flex-col justify-center items-center mt-3  ">
-
-        <textarea value={moodData.gratitude} name="gratitude" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
-        <textarea value={moodData.selfCare} name="selfCare" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
+        <h1 className="text-lime-800 text-xl">Agradecimientos del día:</h1>
+          <textarea value={moodData.gratitude} name="gratitude" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea> <br/>
+        <h1 className="text-lime-800 text-xl">Metas de cuidado del día:</h1>
+          <textarea value={moodData.selfCare} name="selfCare" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea> <br/>
+        <h1 className="text-lime-800 text-xl">Comentarios:</h1>
         <textarea value={moodData.comment} name="comment" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
 
         <button type="submit"
