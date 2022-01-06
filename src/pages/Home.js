@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
 
   const ctxUser = useContext(UserContext);
-  const {authStatus} = ctxUser;
+  const {authStatus, singleUser} = ctxUser;
   const navigate = useNavigate()
 
   
@@ -44,13 +44,13 @@ export default function Home() {
 <>
         <div className="px-6 py-0">
             <div className="font-bold text-3xl mb-2 text-yellow-900 justify-center mt-8">
-            ¡Bienvenid@, {userData.nombre}!
+            ¡Bienvenid@, {singleUser.nombre}!
             </div>
           </div>
 
           <div className="px-6 py-0">
             <div className="font-bold text-3xl mb-2 text-yellow-900 justify-center mt-8">
-            <button type="submit" onClick={() => {navigate(`../profile/${userData._id}`)}}
+            <button type="submit" onClick={() => {navigate(`../profile/${singleUser._id}`)}}
                   className="my-5 bg-lime-600 border w-40 border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   VER TU PERFIL
           </button>

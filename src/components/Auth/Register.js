@@ -33,7 +33,10 @@ export default function Register() {
 		
 		e.preventDefault()
 
+		if(newUser.password === newUser.confirmarpassword) {
 		registerUser(newUser)
+	}
+	else {throw new Error('¡El password confirmado no es el mismo!')}
 
 	}
 
@@ -70,7 +73,7 @@ export default function Register() {
 								<input
 									onChange={(event) => { handleChange(event)}}
 									name="nombre"
-									type="text"
+									type="text" placeholder='Cosme Fulanito'
 									className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
 							</div>
 						</div>
@@ -83,7 +86,7 @@ export default function Register() {
 								<input
 									onChange={(event) => { handleChange(event)}}
 									name="email"
-									type="email"
+									type="email" placeholder='cosme@fulanito.com'
 									className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
 							</div>
 						</div>
@@ -95,8 +98,8 @@ export default function Register() {
 							<div className="mt-1">
 								<input
 									onChange={(event) => { handleChange(event)}}
-									name="password"
-									type="password"
+									name="password" minLength={6}
+									type="password" placeholder='¿Homero? ¿Quien es Homero?'
 									required
 									className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
 							</div>
@@ -109,8 +112,8 @@ export default function Register() {
 							<div className="mt-1">
 								<input
 									onChange={(event) => { handleChange(event)}}
-									name="confirmarpassword"
-									type="password"
+									name="confirmarpassword" minLength={6}
+									type="password" placeholder='Mi nombre es Cosme Fulanito'
 									required
 									className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
 							</div>
