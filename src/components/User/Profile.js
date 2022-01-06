@@ -86,7 +86,7 @@ export default function Profile() {
         <div className="flex flex-col bg-lime-50 rounded w-full max-w-sm md:max-w-md lg:max-w-lg justify-center pr-2 pl-1 justify-self-center shadow-lg my-2 text-center">
          
         <form onSubmit={(event) => {handleSubmit(event)}}> 
-            <h1 className="text-2xl text-lime-800 font-semibold mt-5 mb-2">¿Cómo te encuentras hoy?</h1>
+            <h1 className="text-2xl text-lime-800 font-semibold mt-5 mb-2">¿Cómo te sientes hoy?</h1>
             <div className="flex flex-row justify-center items-center">
 
               <input name="moodEntry" type="image" src={feliz} alt="Happy face" className="w-20 hover:opacity-70 focus:opacity-50"
@@ -117,6 +117,9 @@ export default function Profile() {
 
            
             <div className="flex flex-col justify-center items-center mt-3  ">
+
+            <textarea placeholder="¿Por qué te sientes agradecid@ hoy?" name="gratitude" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
+            <textarea placeholder="¿Qué vas a hacer hoy para tratarte bonito?" name="selfCare" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
             <textarea placeholder="¿Quieres añadir un comentario?" name="comment" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
 
             <button type="submit"

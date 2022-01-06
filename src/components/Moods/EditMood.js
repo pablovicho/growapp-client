@@ -30,6 +30,8 @@ export default function EditMood() {
   const [moodData, setMoodData] = useState({
     moodEntry: 7,
     comment: "",
+    gratitude: "",
+    selfCare: ""
   });
 
   // funciones
@@ -45,12 +47,16 @@ export default function EditMood() {
 		const {
 	     moodEntry,
          comment,
+         gratitude,
+         selfCare
       
 		} = singleMood
 
 		setMoodData({
 			moodEntry: moodEntry,
 			comment: comment,
+      gratitude: gratitude,
+      selfCare: selfCare
 		})
 	}, [singleMood])  // este single revisa cada que se cambia la variable, y hace entonces y solo entonces el async/await
 
@@ -109,6 +115,9 @@ export default function EditMood() {
 
        
         <div className="flex flex-col justify-center items-center mt-3  ">
+
+        <textarea value={moodData.gratitude} name="gratitude" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
+        <textarea value={moodData.selfCare} name="selfCare" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
         <textarea value={moodData.comment} name="comment" className="w-11/12 border-solid" rows="3" onChange={(e) => {handleChange(e)}}></textarea>
 
         <button type="submit"

@@ -52,6 +52,25 @@ export default function SingleMood() {
               {moodArray[singleMood.moodEntry]}
             </div>
           </div>
+
+          <div className="px-6 py-4">
+            <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-1">
+              Tus agradecimientos:
+            </div>
+            <div className=" text-lg mb-2 text-lime-800 justify-center mt-0">
+              {singleMood.gratitude}
+            </div>
+          </div>
+
+          <div className="px-6 py-4">
+            <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-1">
+              Tus metas de cuidado:
+            </div>
+            <div className=" text-lg mb-2 text-lime-800 justify-center mt-0">
+              {singleMood.selfCare}
+            </div>
+          </div>
+
           <div className="px-6 py-4">
             <div className="font-semibold text-2xl mb-2 text-yellow-900 justify-center mt-1">
               Tu comentario:
@@ -60,6 +79,7 @@ export default function SingleMood() {
               {singleMood.comment}
             </div>
           </div>
+
           <div className="px-6 py-4 flex justify-center">
             <div className="mt-0 flex md:mt-0">
               <button
