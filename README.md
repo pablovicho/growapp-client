@@ -1,10 +1,10 @@
 
-****** <br>
-
 **Estructura del cliente**
 Siguiendo un patrón modular, cada carpeta tiene una funcionalidad distinta dentro del client/src:
-1. components tiene 
+1. components tiene el footer y el header(llamado aquí dropdown), las vistas de "mood" (singleMood, Scatter -como se llama la gráfica tipo scatter, que muestra una colección de estados de ánimo y su graficación-, y editMood), las vistas del usuario(profile, edit).
+2. Pages tiene dos páginas solamente: About, y Home. About necesita trabajo: todavía no explica suficientemente sobre qué va la app y qué es lo que puede llegar a hacer. Tal vez serviría añadirle unas slides con imágenes y poco texto en cada una.
 
+<br>
 
 **usuario**
 1. creación del modelo, el controlador y la ruta de usuario en server
@@ -14,16 +14,13 @@ Siguiendo un patrón modular, cada carpeta tiene una funcionalidad distinta dent
 3. creación de las rutas de About y Home en pages/client, y del header y footer en components/layout
 4. creación de las rutas de login y register en components/Auth
 
+<br>
+
 **cards de estado**
 1. creación del modelo, el controlador y las rutas de tarjetas
-2. integración de la librería chart.js
-3. 
+2. integración de la librería de gráficos
 
+<br>
 
 **TODO**
-crear las vistas del mood: el mood individual, con su fecha, comentario y estado de ánimo, además de un botón de editar
-
-anidar una vista del gráfico en el perfil
-instalar la librería de gráficos
-
-añadirle funcionalidad a los botones de estado de ánimo
+Trabajar la página de About

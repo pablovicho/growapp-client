@@ -16,8 +16,7 @@ export default function Register() {
 		nombre: "",
 		email: "",
 		password: "",
-		confirmarpassword: "",
-		terapeuta: false
+		confirmarpassword: ""
 	})
 
 	const handleChange = (e) => {
@@ -42,8 +41,8 @@ export default function Register() {
 
 
 	return (
-		<div className="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-			<div className="sm:mx-auto sm:w-full sm:max-w-md">
+		<div className="flex flex-col justify-center py-12 md:px-6 lg:px-8">
+			<div className="md:mx-auto md:w-full md:max-w-md lg:max-w-md">
 			<div className="flex justify-center mt-2">
         <img src={logo3} alt="logo"/>
         </div>
@@ -60,7 +59,7 @@ export default function Register() {
 				</p>
 			</div>
 
-			<div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+			<div className="mt-8 md:mx-auto md:w-full md:max-w-md lg:max-w-md">
 				<div className="bg-lime-50 py-8 px-4 shadow sm:rounded-lg sm:px-10">
 					<form 
 					onSubmit={(event) => { handleSubmit(event) }}
@@ -118,40 +117,6 @@ export default function Register() {
 									className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
 							</div>
 						</div>
-
-	  <div>
-  <label className="text-base font-medium text-gray-900">Tipo de usuario</label>
-  <fieldset className="mt-4">
-    <legend htmlFor="usuario" className="sr-only">Usuario</legend>
-    <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
-      <div className="flex items-center">
-        <input name="terapeuta" 
-				onChange={(e) => {handleChange(e)}}
-                type="radio"
-			    value="false" 
-                id="usuario"
-				checked
-				className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/>
-        <label htmlFor="email" className="ml-3 block text-sm font-medium text-gray-700">
-          Principal
-        </label>
-      </div>
-
-      <div className="flex items-center">
-        <input onChange={(e) => {handleChange(e)}}
-                name="terapeuta" 
-                type="radio" 
-                id="terapeuta"
-				value="true"
-				className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"/>
-        <label htmlFor="sms" className="ml-3 block text-sm font-medium text-gray-700">
-          Acompañante
-        </label>
-      </div>
-
-    </div>
-  </fieldset>
-</div>
 		
 						<div className="flex justify-center">
 							<button type="submit" className="w-60 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-lime-700 font-lg hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">

@@ -1,7 +1,7 @@
 import React, {Fragment, useContext, useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
-import { DotsVerticalIcon, UserIcon, UserCircleIcon, MenuIcon } from '@heroicons/react/outline'
+import { MenuIcon } from '@heroicons/react/outline'
 import UserContext from '../../context/User/UserContext'
 import logo1 from "../../images/logo1.png"
 
@@ -28,7 +28,7 @@ function classNames(...classes) {
 	}, [])
 
     return (
-        <div className='flex justify-between bg-lime-600 py-0 items-center'>
+        <div className='flex justify-between px-2 bg-lime-600 py-0 items-center'>
         <div>
         <div className="overflow-hidden flex">
 						<Link to="/">
@@ -37,8 +37,8 @@ function classNames(...classes) {
 					</div>
         </div>
 
-        <div>
-      <Menu as="div" className="relative inline-block text-left">
+        <div className='flex items-bottom'>
+      <Menu as="div" className="relative inline-block text-left hover:-translate-y-1 hover:scale-110 duration-300">
         <div>
           <Menu.Button className="bg-lime-100 rounded-full flex items-center text-lime-600 hover:text-lime-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-lime-100 focus:ring-lime-500">
             <span className="sr-only">Open options</span>

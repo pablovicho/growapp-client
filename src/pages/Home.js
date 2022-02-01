@@ -14,15 +14,13 @@ export default function Home() {
     setUserData(data) //se asignan a userData con setUserData
   };
 
-  useEffect(() => {
-    loadUserData() //y al renderizar la página, se invoca el async, obteniendo los datos en userData
-  }, []);
-
   const ctxUser = useContext(UserContext);
   const {authStatus, singleUser} = ctxUser;
   const navigate = useNavigate()
 
-  
+  useEffect(() => {
+    loadUserData() //y al renderizar la página, se invoca el async, obteniendo los datos en userData
+  }, []);
 
 	return (
 		<div>

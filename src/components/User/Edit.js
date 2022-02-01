@@ -19,7 +19,6 @@ export default function Edit() {
   const [userData, setUserData] = useState({
     nombre: "",
     email: "",
-    terapeuta: "",
   });
 
   // funciones
@@ -35,13 +34,11 @@ export default function Edit() {
 		const {
 			nombre,
       email,
-      terapeuta,
 		} = singleUser
 
 		setUserData({
 			nombre: nombre,
 			email: email,
-			terapeuta: terapeuta,
 		})
 	}, [singleUser])  // este single revisa cada que se cambia la variable, y hace entonces y solo entonces el async/await
 
@@ -127,43 +124,7 @@ export default function Edit() {
                         Usuario
                       </legend>
                       <div className="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
-                        <div className="flex items-center">
-                          <input
-                            name="terapeuta"
-                            onChange={(e) => {
-                              handleChange(e);
-                            }}
-                            type="radio"
-                            value="false"
-                            id="usuario"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                          />
-                          <label
-                            htmlFor="email"
-                            className="ml-3 block text-sm font-medium text-gray-700"
-                          >
-                            Principal
-                          </label>
-                        </div>
-
-                        <div className="flex items-center">
-                          <input
-                            onChange={(e) => {
-                              handleChange(e);
-                            }}
-                            name="terapeuta"
-                            type="radio"
-                            id="terapeuta"
-                            value="true"
-                            className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
-                          />
-                          <label
-                            htmlFor="sms"
-                            className="ml-3 block text-sm font-medium text-gray-700"
-                          >
-                            Acompañante
-                          </label>
-                        </div>
+                       
                       </div>
                     </fieldset>
                   </div>

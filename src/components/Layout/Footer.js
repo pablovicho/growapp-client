@@ -18,7 +18,7 @@ export default function Footer() {
               <FontAwesomeIcon className="absolute top-0 object-cover" icon={faGithub} />
             </a>
          
-            <a href="https://linkedin.com/in/pablo-valdes-b950066b/" className="text-gray-400 socialIcons fa-fw hover:text-gray-500">
+            <a href="https://www.linkedin.com/in/pablovicho" className="text-gray-400 socialIcons fa-fw hover:text-gray-500">
               <span className="sr-only">faLinkedin</span>
               <FontAwesomeIcon className="absolute top-0 object-cover" icon={faLinkedin}/>
             </a>

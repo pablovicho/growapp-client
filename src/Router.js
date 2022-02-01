@@ -16,8 +16,6 @@ import MoodState from './context/Mood/MoodState'
 import Auth from './routes/Auth'
 import Private from './routes/Private'
 
-import App from "./components/Moods/App"
-
 // 2. FUNCIÓN
 const Router = () => {
 	

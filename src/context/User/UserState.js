@@ -14,7 +14,6 @@ const UserState = (props) => {
 			nombre: "",
 			email: "",
 			password: "",
-            terapeuta: false
 		},
 		authStatus: false
 	}
@@ -33,6 +32,7 @@ const UserState = (props) => {
 		})
 	}
 
+	//----------LOGIN----------------
 	const loginUser = async (form) => {
 		const res = await axiosClient.post("users/login", form)
 		const token = res.data.data
@@ -44,6 +44,7 @@ const UserState = (props) => {
 		})
 	}
 
+	//------------AXIOS--------------
 	const verifyingToken = async () => {
 		const token = localStorage.getItem("token")
 		// ANEXAR TOKEN A LA SIGUIENTE PETICIÓN DE AXIOS
@@ -66,14 +67,16 @@ const UserState = (props) => {
 		}
 	}
 
+	//-----------LOGOUT------------
 	const logoutUser = async () => {
 		dispatch({
             type: "LOGOUT_USUARIO"
         })
 	}
 
+	//-----------GETUSER-------------
 	const getUser = async(userId) => {
-		const res = await axiosClient.get(`users/readone/${userId}`) //checar el server
+		const res = await axiosClient.get(`users/readone/${userId}`)
 		const selectedUser = res.data.data
 	  dispatch({
 		type:"GET_USER",
@@ -81,6 +84,7 @@ const UserState = (props) => {
 	  })
 	  }
 
+	  //-------------UPDATE-------------
 	  const updateUser = async (form, userId) => { 
 		const res = await axiosClient.post(`users/edit/${userId}`, form)
 		const updatedUser = res.data.data
@@ -89,9 +93,9 @@ const UserState = (props) => {
 		  type: "UPDATE_USER",
 		  payload: updatedUser
 		})
-		// window.location.replace;
 	  }
 	
+	//-------------DELETE----------------
 	const deleteUser = async (form, userId) => {
 		const deletedUser  = await axiosClient.delete(`users/delete/${userId}`)
 		dispatch({
@@ -104,7 +108,6 @@ const UserState = (props) => {
 	return (
 		<UserContext.Provider
 			value={{
-				// currentUser: globalState.currentUser,
 				authStatus: globalState.authStatus,
 				singleUser: globalState.singleUser,
 				registerUser,
